@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Client\ClientController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,4 +16,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+//Client
+Route::prefix('bookstore')->group(function(){
+    Route::get('index', [ClientController::class,'index'])->name('index');
+    Route::get('category', [ClientController::class,'category'])->name('category');
+    Route::get('book-detail', [ClientController::class,'bookDetail'])->name('bookdetail');
+    Route::get('check-out', [ClientController::class,'checkOut'])->name('checkout');
+    Route::get('wish-list', [ClientController::class,'wishList'])->name('wishlist');
 });
