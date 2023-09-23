@@ -18,9 +18,11 @@ return new class extends Migration
             $table->string('title');
             $table->string('author');
             $table->integer('price');
+            $table->string('images');
             $table->string('description');
             $table->date('publication_date');
             $table->string('publisher');
+            $table->integer('category_id');
             $table->timestamps();
             $table->softDeletes();
         });

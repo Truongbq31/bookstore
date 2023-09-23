@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\Account\LoginController;
+use App\Http\Controllers\Account\RegisterController;
+use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Client\ClientController;
 use Illuminate\Support\Facades\Route;
 
@@ -26,3 +30,16 @@ Route::prefix('bookstore')->group(function(){
     Route::get('check-out', [ClientController::class,'checkOut'])->name('checkout');
     Route::get('wish-list', [ClientController::class,'wishList'])->name('wishlist');
 });
+
+//Admin
+Route::prefix('admin')->group(function(){
+    Route::get('databoard',[AdminController::class,'databoard'])->name('adminDataboard');
+    Route::get('category',[AdminController::class,'category'])->name('adminCategory');
+    Route::get('author',[AdminController::class,'author'])->name('adminAuthor');
+    Route::get('books',[AdminController::class,'books'])->name('adminBooks');
+    Route::get('list-user',[UserController::class,'listUser'])->name('adminListUser');
+});
+
+//Account
+Route::get('login',[LoginController::class,'login'])->name('login');
+Route::get('register',[RegisterController::class,'register'])->name('register');

@@ -3,12 +3,14 @@
 namespace App\Http\Controllers\Client;
 
 use App\Http\Controllers\Controller;
+use App\Models\Books;
 use Illuminate\Http\Request;
 
 class ClientController extends Controller
 {
     public function index(){
-        return view('content.index');
+        $books = Books::all();
+        return view('content.index', compact('books'));
     }
     public function category(){
         return view('content.category');

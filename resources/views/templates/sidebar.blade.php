@@ -30,19 +30,19 @@
              <li>
                 <a href="#admin" class="iq-waves-effect" data-toggle="collapse" aria-expanded="false"><span class="ripple rippleEffect"></span><i class="ri-admin-line"></i><span>Admin</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
                 <ul id="admin" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
-                   <li><a href="admin-dashboard.html"><i class="ri-dashboard-line"></i>Dashboard</a></li>
-                   <li><a href="admin-category.html"><i class="ri-list-check-2"></i>Category Lists</a></li>
-                   <li><a href="admin-author.html"><i class="ri-file-user-line"></i>Author</a></li>
-                   <li><a href="admin-books.html"><i class="ri-book-2-line"></i>Books</a></li>
+                   <li><a href="{{ route('adminDataboard') }}"><i class="ri-dashboard-line"></i>Dashboard</a></li>
+                   <li><a href="{{ route('adminCategory') }}"><i class="ri-list-check-2"></i>Category Lists</a></li>
+                   <li><a href="{{ route('adminAuthor') }}"><i class="ri-file-user-line"></i>Author</a></li>
+                   <li><a href="{{ route('adminBooks') }}"><i class="ri-book-2-line"></i>Books</a></li>
                 </ul>
              </li>
              <li>
                 <a href="#userinfo" class="iq-waves-effect" data-toggle="collapse" aria-expanded="false"><span class="ripple rippleEffect"></span><i class="las la-user-tie iq-arrow-left"></i><span>User</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
                 <ul id="userinfo" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle" style="">
-                   <li><a href="profile.html"><i class="las la-id-card-alt"></i>User Profile</a></li>
-                   <li><a href="profile-edit.html"><i class="las la-edit"></i>User Edit</a></li>
-                   <li><a href="add-user.html"><i class="las la-plus-circle"></i>User Add</a></li>
-                   <li><a href="user-list.html"><i class="las la-th-list"></i>User List</a></li>
+                   {{-- <li><a href="profile.html"><i class="las la-id-card-alt"></i>User Profile</a></li> --}}
+                   {{-- <li><a href="profile-edit.html"><i class="las la-edit"></i>User Edit</a></li> --}}
+                   <li><a href="{{ route('adminListUser') }}"><i class="las la-th-list"></i>User List</a></li>
+                   <li><a href="user-list.html"><i class="las la-edit"></i>Decentralization</a></li>
                 </ul>
              </li>
 
@@ -52,25 +52,11 @@
                    <li>
                       <a href="#authentication" class="iq-waves-effect collapsed" data-toggle="collapse" aria-expanded="false"><i class="ri-pages-line"></i><span>Authentication</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
                       <ul id="authentication" class="iq-submenu collapse" data-parent="#pages">
-                         <li><a href="sign-in.html"><i class="las la-sign-in-alt"></i>Login</a></li>
-                         <li><a href="sign-up.html"><i class="ri-login-circle-line"></i>Register</a></li>
-                         <li><a href="pages-recoverpw.html"><i class="ri-record-mail-line"></i>Recover Password</a></li>
+                         <li><a href="{{ route('login') }}"><i class="las la-sign-in-alt"></i>Login</a></li>
+                         <li><a href="{{ route('register') }}"><i class="ri-login-circle-line"></i>Register</a></li>
+                         {{-- <li><a href="pages-recoverpw.html"><i class="ri-record-mail-line"></i>Recover Password</a></li>
                          <li><a href="pages-confirm-mail.html"><i class="ri-file-code-line"></i>Confirm Mail</a></li>
-                         <li><a href="pages-lock-screen.html"><i class="ri-lock-line"></i>Lock Screen</a></li>
-                      </ul>
-                   </li>
-                   <li>
-                      <a href="#extra-pages" class="iq-waves-effect collapsed" data-toggle="collapse" aria-expanded="false"><i class="ri-pantone-line"></i><span>Extra Pages</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
-                      <ul id="extra-pages" class="iq-submenu collapse" data-parent="#pages">
-                         <li><a href="pages-timeline.html"><i class="ri-map-pin-time-line"></i>Timeline</a></li>
-                         <li><a href="pages-invoice.html"><i class="ri-question-answer-line"></i>Invoice</a></li>
-                         <li><a href="blank-page.html"><i class="ri-invision-line"></i>Blank Page</a></li>
-                         <li><a href="pages-error.html"><i class="ri-error-warning-line"></i>Error 404</a></li>
-                         <li><a href="pages-error-500.html"><i class="ri-error-warning-line"></i>Error 500</a></li>
-                         <li><a href="pages-pricing.html"><i class="ri-price-tag-line"></i>Pricing</a></li>
-                         <li><a href="pages-maintenance.html"><i class="ri-archive-line"></i>Maintenance</a></li>
-                         <li><a href="pages-comingsoon.html"><i class="ri-mastercard-line"></i>Coming Soon</a></li>
-                         <li><a href="pages-faq.html"><i class="ri-compasses-line"></i>Faq</a></li>
+                         <li><a href="pages-lock-screen.html"><i class="ri-lock-line"></i>Lock Screen</a></li> --}}
                       </ul>
                    </li>
                 </ul>
