@@ -17,6 +17,7 @@
       <link rel="stylesheet" href="{{ asset('css/style.css') }}">
       <!-- Responsive CSS -->
       <link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
+      @livewireStyles
    </head>
    <body>
       <!-- loader Start -->
@@ -30,6 +31,7 @@
       <div class="wrapper">
         @include('templates.sidebar')
         @include('templates.navbar')
+        @include('templates.alert')
         @yield('content')
       </div>
       <!-- Wrapper END -->
@@ -106,6 +108,8 @@
       <script src="{{asset('js/chart-custom.js')}}"></script>
       <!-- Custom JavaScript -->
       <script src="{{asset('js/custom.js')}}"></script>
+
+      @livewireScripts
    </body>
 
 <!-- Mirrored from templates.iqonic.design/booksto/html/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 16 Sep 2023 07:55:23 GMT -->
