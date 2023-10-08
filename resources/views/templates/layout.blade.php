@@ -110,6 +110,8 @@
       <script src="{{asset('js/custom.js')}}"></script>
 
       @livewireScripts
+
+      @yield('script')
    </body>
 
 <!-- Mirrored from templates.iqonic.design/booksto/html/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 16 Sep 2023 07:55:23 GMT -->

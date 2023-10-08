@@ -46,7 +46,16 @@ Route::prefix('admin')->group(function(){
     Route::match(['GET','POST'], 'edit-category/{id}',[CategoryController::class,'edit'])->name('editCategory');
 
     //End Category
-    Route::get('author',[AuthorController::class,'author'])->name('adminAuthor');
+
+    //Authors
+    Route::get('authors',[AuthorController::class,'author'])->name('adminAuthor');
+    Route::get('author-remove/{id}',[AuthorController::class,'remove'])->name('removeAuthor');
+    Route::match(['GET','POST'], 'authors-add',[AuthorController::class,'add'])->name('addAuthor');
+    Route::match(['GET','POST'], 'authors-edit/{id}',[AuthorController::class,'edit'])->name('editAuthor');
+
+    //End Authors
+
+
     Route::get('books',[BooksController::class,'books'])->name('adminBooks');
     Route::get('list-user',[UserController::class,'listUser'])->name('adminListUser');
 });
