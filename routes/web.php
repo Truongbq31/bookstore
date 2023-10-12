@@ -52,11 +52,15 @@ Route::prefix('admin')->group(function(){
     Route::get('author-remove/{id}',[AuthorController::class,'remove'])->name('removeAuthor');
     Route::match(['GET','POST'], 'authors-add',[AuthorController::class,'add'])->name('addAuthor');
     Route::match(['GET','POST'], 'authors-edit/{id}',[AuthorController::class,'edit'])->name('editAuthor');
-
     //End Authors
 
-
+    //Books
     Route::get('books',[BooksController::class,'books'])->name('adminBooks');
+    Route::get('books-remove/{id}',[BooksController::class,'remove'])->name('removeBook');
+    Route::match(['GET','POST'],'books-add',[BooksController::class,'add'])->name('addBooks');
+    Route::match(['GET','POST'],'books-edit/{id}',[BooksController::class,'edit'])->name('editBooks');
+
+    //End Books
     Route::get('list-user',[UserController::class,'listUser'])->name('adminListUser');
 });
 

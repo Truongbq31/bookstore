@@ -32,7 +32,7 @@
                                             <tr>
                                                 <td>{{ $author->id }}</td>
                                                 <td>
-                                                <img src="{{ $author->image?''.Storage::url($author->image):''}}" class="img-fluid avatar-50 rounded" alt="author-profile">
+                                                <img src="{{ $author->image ? ''.Storage::url($author->image): ''}}" class="img-fluid avatar-50 rounded" alt="author-profile">
                                                 </td>
                                                 <td>{{ $author->name }}</td>
                                                 <td>{{ $author->email }}</td>

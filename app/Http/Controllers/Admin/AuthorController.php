@@ -36,9 +36,8 @@ class AuthorController extends Controller
         if($request->isMethod('POST')){
             $params = $request->except('_token');
             if($request->hasFile('image')){
-                if(Storage::delete('/images/'.$author->image)){
-                    $params['image'] = uploadFile('images', $request->file('image'));
-                }
+                Storage::delete('/public/'.$author->image);
+                $params['image'] = uploadFile('images', $request->file('image'));
             }
             $result = Authors::where('id', $id)->update($params);
             if($result){
@@ -52,7 +51,7 @@ class AuthorController extends Controller
     public function remove($id){
         $author = Authors::find($id);
         if($author){
-            Storage::delete('/images/'.$author->image);
+            Storage::delete('/public/'.$author->image);
             Authors::where('id', $id)->delete();
             Session::flash('success', 'Xóa thành công!');
             return redirect()->route('adminAuthor');
