@@ -1,9 +1,12 @@
 <?php
 
+use App\Http\Controllers\Account\AccountSetting;
 use App\Http\Controllers\Account\LoginController;
+use App\Http\Controllers\Account\LogoutController;
 use App\Http\Controllers\Account\RegisterController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AuthorController;
+use App\Http\Controllers\Admin\BannersController;
 use App\Http\Controllers\Admin\BooksController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DataBoardController;
@@ -59,11 +62,24 @@ Route::prefix('admin')->group(function(){
     Route::get('books-remove/{id}',[BooksController::class,'remove'])->name('removeBook');
     Route::match(['GET','POST'],'books-add',[BooksController::class,'add'])->name('addBooks');
     Route::match(['GET','POST'],'books-edit/{id}',[BooksController::class,'edit'])->name('editBooks');
-
     //End Books
+
+    //Banners
+    Route::get('banners', [BannersController::class, 'banners'])->name('adminBanners');
+    Route::get('banners-remove/{id}', [BannersController::class, 'remove'])->name('removeBanner');
+    Route::match(['GET', 'POST'],'banners-add', [BannersController::class, 'add'])->name('addBanners');
+
+    //End Banner
     Route::get('list-user',[UserController::class,'listUser'])->name('adminListUser');
 });
 
 //Account
-Route::get('login',[LoginController::class,'login'])->name('login');
-Route::get('register',[RegisterController::class,'register'])->name('register');
+Route::match(['GET','POST'], 'login',[LoginController::class,'login'])->name('login');
+Route::match(['GET','POST'], 'register',[RegisterController::class,'register'])->name('register');
+Route::get('logout', [LogoutController::class,'logout'])->name('logout');
+
+Route::get('profile-setting', [AccountSetting::class, 'profileSetting'])->name('profileSetting');
+Route::match(['GET','POST'],'profile-setting/change-password', [AccountSetting::class, 'changePassword'])->name('changePassword');
+
+
+

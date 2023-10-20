@@ -35,18 +35,22 @@
                           <div class="sign-in-from bg-primary rounded">
                               <h3 class="mb-0 text-center text-white">Sign Up</h3>
                               <p class="text-center text-white">Enter your email address and password to access admin panel.</p>
-                              <form class="mt-4 form-text">
+                              <form method="POST" action="{{ route('register') }}" class="mt-4 form-text">
+                                @csrf
                                   <div class="form-group">
                                       <label for="exampleInputEmail1">Your Full Name</label>
-                                      <input type="email" class="form-control mb-0" id="exampleInputEmail1" placeholder="Your Full Name">
+                                      <input name="fullName" type="text" class="form-control mb-0" id="exampleInputEmail1" placeholder="Your Full Name" required>
                                   </div>
                                   <div class="form-group">
                                       <label for="exampleInputEmail2">Email address</label>
-                                      <input type="email" class="form-control mb-0" id="exampleInputEmail2" placeholder="Enter email">
+                                      <input name="email" type="email" class="form-control mb-0" id="exampleInputEmail2" placeholder="Enter email" required>
+                                      @error('email')
+                                        <p style="color: red">{{ $message }}</p>
+                                      @enderror
                                   </div>
                                   <div class="form-group">
                                       <label for="exampleInputPassword1">Password</label>
-                                      <input type="password" class="form-control mb-0" id="exampleInputPassword1" placeholder="Password">
+                                      <input name="password" type="password" class="form-control mb-0" id="exampleInputPassword1" placeholder="Password" required>
                                   </div>
                                   <div class="d-inline-block w-100">
                                       <div class="custom-control custom-checkbox d-inline-block mt-2 pt-1">
@@ -56,7 +60,7 @@
                                   </div>
                                   <div class="sign-info text-center">
                                       <button type="submit" class="btn btn-white d-block w-100 mb-2">Sign Up</button>
-                                      <span class="text-dark d-inline-block line-height-2">Already Have Account ? <a href="sign-in.html" class="text-white">Log In</a></span>
+                                      <span class="text-dark d-inline-block line-height-2">Already Have Account ? <a href="{{ route('login') }}" class="text-white">Log In</a></span>
                                   </div>
                               </form>
                           </div>

@@ -19,7 +19,7 @@
                                      <ul id="description-slider-nav" class="list-inline p-0 m-0  d-flex align-items-center">
                                         <li>
                                            <a href="javascript:void(0);">
-                                           <img src="images/book-dec/01.jpg" class="img-fluid rounded w-100" alt="">
+                                           <img src="" class="img-fluid rounded w-100" alt="">
                                            </a>
                                         </li>
                                         <li>

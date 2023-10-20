@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class UserController extends Controller
 {
     public function listUser(){
-        return view('content.admin.listUser');
+        return view('content.admin.user.listUser');
     }
     //
 }

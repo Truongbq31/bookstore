@@ -27,16 +27,17 @@
                   <li><a href="{{ route('wishlist') }}"><i class="ri-heart-line"></i>wishlist</a></li>
                 </ul>
              </li>
-             <li>
+             <li {{ Session::has('admin') ? '' : 'hidden' }}>
                 <a href="#admin" class="iq-waves-effect" data-toggle="collapse" aria-expanded="false"><span class="ripple rippleEffect"></span><i class="ri-admin-line"></i><span>Admin</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
                 <ul id="admin" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
                    <li><a href="{{ route('adminDataboard') }}"><i class="ri-dashboard-line"></i>Dashboard</a></li>
                    <li><a href="{{ route('adminCategory') }}"><i class="ri-list-check-2"></i>Category Lists</a></li>
-                   <li><a href="{{ route('adminAuthor') }}"><i class="ri-file-user-line"></i>Author</a></li>
+                   <li><a href="{{ route('adminAuthor') }}"><i class="ri-file-user-line"></i>Authors</a></li>
                    <li><a href="{{ route('adminBooks') }}"><i class="ri-book-2-line"></i>Books</a></li>
+                   <li><a href="{{ route('adminBanners') }}"><i class="ri-book-2-line"></i>Banners</a></li>
                 </ul>
              </li>
-             <li>
+             <li {{ Session::has('admin') ? '' : 'hidden' }}>
                 <a href="#userinfo" class="iq-waves-effect" data-toggle="collapse" aria-expanded="false"><span class="ripple rippleEffect"></span><i class="las la-user-tie iq-arrow-left"></i><span>User</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
                 <ul id="userinfo" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle" style="">
                    {{-- <li><a href="profile.html"><i class="las la-id-card-alt"></i>User Profile</a></li> --}}
