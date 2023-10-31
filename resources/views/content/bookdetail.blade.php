@@ -90,27 +90,41 @@
                       <div class="col-md-6">
                          <div class="iq-card-transparent iq-card-block iq-card-stretch iq-card-height">
                             <div class="iq-card-body p-0">
-                               <h3 class="mb-3">A Casey Christi night books in the raza Dakota Krout</h3>
-                               <div class="price d-flex align-items-center font-weight-500 mb-2">
-                                  <span class="font-size-20 pr-2 old-price">$99</span>
-                                  <span class="font-size-24 text-dark">$48</span>
-                               </div>
-                               <div class="mb-3 d-block">
-                                  <span class="font-size-20 text-warning">
-                                  <i class="fa fa-star mr-1"></i>
-                                  <i class="fa fa-star mr-1"></i>
-                                  <i class="fa fa-star mr-1"></i>
-                                  <i class="fa fa-star mr-1"></i>
-                                  <i class="fa fa-star"></i>
-                                  </span>
-                               </div>
-                               <span class="text-dark mb-4 pb-4 iq-border-bottom d-block">Monterhing in the best book testem ipsum is simply dtest in find in a of the printing and typeseting industry into to end.in find in a of the printing and typeseting industry in find to make it all done into end.</span>
-                               <div class="text-primary mb-4">Author: <span class="text-body">Jhone Steben</span></div>
-                               <div class="mb-4 d-flex align-items-center">
-                                  <a href="#" class="btn btn-primary view-more mr-2">Add To Cart</a>
-                                  <a href="book-pdf.html" class="btn btn-primary view-more mr-2">Read Sample</a>
-                               </div>
-                               <div class="mb-3">
+
+                                <h3 class="mb-3">{{ $book->bookName }}</h3>
+                                <div class="price d-flex align-items-center font-weight-500 mb-2">
+                                    {{-- <span class="font-size-20 pr-2 old-price">$99</span> --}}
+                                    <span class="font-size-24 text-dark">{{ number_format($book->price)}} đ</span>
+                                </div>
+                                <div class="mb-3 d-block">
+                                    <span class="font-size-20 text-warning">
+                                    <i class="fa fa-star mr-1"></i>
+                                    <i class="fa fa-star mr-1"></i>
+                                    <i class="fa fa-star mr-1"></i>
+                                    <i class="fa fa-star mr-1"></i>
+                                    <i class="fa fa-star"></i>
+                                    </span>
+                                </div>
+                                <span class="text-dark mb-4 pb-4 iq-border-bottom d-block">{{ $book->description }}</span>
+                                <div class="text-primary mb-4">Author: <span class="text-body">{{ $book->author_id }}</span></div>
+                                <a onclick="add({{ $book->id }})" href="javascript:" type="submit" class="btn btn-primary view-more mr-2">Add To Cart</a>
+                                {{-- <form action="" method="POST">
+                                    @csrf
+                                    <input hidden type="text" value="{{ $book->id }}" name="book_id">
+
+                                    <div class="mb-4 d-flex align-items-center">
+                                        <div class="mr-5">
+                                            <label for="">Quantity: </label>
+                                            <button type="button" class="fa fa-minus qty-btn" id="btn-minus"></button>
+                                            <input name="quantity" type="text" id="quantity" value="1">
+                                            <button type="button" class="fa fa-plus qty-btn" id="btn-plus"></button>
+                                        </div>
+
+                                    </div>
+                                </form> --}}
+                                {{-- <a onclick="add({{ $book->id }})" href="javascript:">add</a> --}}
+
+                               <div class="mb-3 mt-4">
                                   <a href="#" class="text-body text-center"><span class="avatar-30 rounded-circle bg-primary d-inline-block mr-2"><i class="ri-heart-fill"></i></span><span>Add to Wishlist</span></a>
                                </div>
                                <div class="iq-social d-flex align-items-center">

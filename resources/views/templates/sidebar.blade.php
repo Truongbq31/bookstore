@@ -23,7 +23,7 @@
                 <ul id="dashboard" class="iq-submenu collapse show" data-parent="#iq-sidebar-toggle">
                    <li class="active"><a href="{{ route('index') }}"><i class="las la-house-damage"></i>Home Page</a></li>
                    <li><a href="{{ route('category') }}"><i class="ri-function-line"></i>Category Page</a></li>
-                   <li><a href="{{ route('checkout') }}"><i class="ri-checkbox-multiple-blank-line"></i>Checkout</a></li>
+                   <li><a href="{{ route('Cart.index') }}"><i class="ri-checkbox-multiple-blank-line"></i>Checkout</a></li>
                   <li><a href="{{ route('wishlist') }}"><i class="ri-heart-line"></i>wishlist</a></li>
                 </ul>
              </li>

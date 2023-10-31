@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\BooksController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DataBoardController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\Client\ClientController;
 use Illuminate\Support\Facades\Route;
 
@@ -33,9 +34,18 @@ Route::get('/', function () {
 Route::prefix('bookstore')->group(function(){
     Route::get('index', [ClientController::class,'index'])->name('index');
     Route::get('category', [ClientController::class,'category'])->name('category');
-    Route::get('book-detail', [ClientController::class,'bookDetail'])->name('bookdetail');
+    Route::get('book-detail/{id}', [ClientController::class,'bookDetail'])->name('bookdetail');
     Route::get('check-out', [ClientController::class,'checkOut'])->name('checkout');
     Route::get('wish-list', [ClientController::class,'wishList'])->name('wishlist');
+
+    //Cart
+    Route::get('/cart', [CartController::class,'index'])->name('Cart.index');
+    // Route::post('/cart-add', [CartController::class,'add'])->name('Cart.add');
+    // Route::get('/remove-item/{id}',[CartController::class,'remove'])->name('Cart.remove');
+
+    Route::POST('/add-to-cart', [CartController::class,'addToCart'])->name('Cart.add');
+    Route::delete('/remove-cart', [CartController::class,'remove'])->name('Cart.remove');
+    Route::patch('/update-cart', [CartController::class,'update'])->name('Cart.update');
 });
 
 //Admin

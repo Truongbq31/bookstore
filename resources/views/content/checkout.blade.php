@@ -14,45 +14,51 @@
                          </div>
                       </div>
                       <div class="iq-card-body">
-                         <ul class="list-inline p-0 m-0">
+
+                        <ul class="list-inline p-0 m-0">
+                            @foreach ($cart->getItems() as $key => $value )
                             <li class="checkout-product">
-                               <div class="row align-items-center">
-                                  <div class="col-sm-2">
-                                     <span class="checkout-product-img">
-                                     <a href="javascript:void();"><img class="img-fluid rounded" src="{{ asset('images/checkout/01.jpg') }}" alt=""></a>
-                                     </span>
-                                  </div>
-                                  <div class="col-sm-4">
-                                     <div class="checkout-product-details">
-                                        <h5>The Raze night book</h5>
-                                        <p class="text-success">In stock</p>
-                                        <div class="price">
-                                           <h5>$180.00</h5>
+                                <div class="row align-items-center">
+                                    <div class="col-sm-2">
+                                        <span class="checkout-product-img">
+                                        <a href="javascript:void();"><img class="img-fluid rounded" src="{{ $value['image'] ? ''.Storage::url($value['image']) : '' }}" alt=""></a>
+                                        </span>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="checkout-product-details">
+                                            <h5>{{ $value['product_name'] }}</h5>
+                                            <p class="text-success">In stock</p>
+                                            <div class="price">
+                                            <h5>{{ number_format($value['price']) }} đ</h5>
+                                            <input type="number" hidden id="price" value="{{ $value['price'] }}">
+                                            <input type="text" hidden id="productID" value="{{ $key }}">
+                                            </div>
                                         </div>
-                                     </div>
-                                  </div>
-                                  <div class="col-sm-6">
-                                     <div class="row">
-                                        <div class="col-sm-10">
-                                           <div class="row align-items-center mt-2">
-                                              <div class="col-sm-7 col-md-6">
-                                                 <button type="button" class="fa fa-minus qty-btn" id="btn-minus"></button>
-                                                 <input type="text" id="quantity" value="0">
-                                                 <button type="button" class="fa fa-plus qty-btn" id="btn-plus"></button>
-                                              </div>
-                                              <div class="col-sm-5 col-md-6">
-                                                 <span class="product-price">$180.00</span>
-                                              </div>
-                                           </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="row">
+                                            <div class="col-sm-10">
+                                            <div class="row align-items-center mt-2">
+                                                <div class="col-sm-7 col-md-6">
+                                                    <button type="button" class="fa fa-minus qty-btn" id="btn-minus"></button>
+                                                    <input type="text" id="quantity" value="{{ $value['quantity'] }}">
+                                                    <button type="button" class="fa fa-plus qty-btn" id="btn-plus"></button>
+                                                </div>
+                                                <div class="col-sm-5 col-md-6">
+                                                    <h5 id="totalPrice" class="product-price">{{ number_format($value['quantity'] * $value['price']) }} đ</h5>
+                                                </div>
+                                            </div>
+                                            </div>
+                                            <div class="col-sm-2">
+                                                <a href="javascript:" id="cart_remove" onclick="remove({{ $key }})" class="btn text-dark font-size-20"><i class="ri-delete-bin-7-fill"></i></a>
+                                            </div>
                                         </div>
-                                        <div class="col-sm-2">
-                                           <a href="javascript:void();" class="text-dark font-size-20"><i class="ri-delete-bin-7-fill"></i></a>
-                                        </div>
-                                     </div>
-                                  </div>
-                               </div>
+                                    </div>
+                                </div>
                             </li>
-                         </ul>
+                            @endforeach
+                        </ul>
+
                       </div>
                    </div>
                 </div>
@@ -67,17 +73,17 @@
                          <hr>
                          <p><b>Price Details</b></p>
                          <div class="d-flex justify-content-between mb-1">
-                            <span>Total MRP</span>
-                            <span>$829</span>
+                            {{-- <span>Total MRP</span> --}}
+                            {{-- <span>{{ number_format($cart->getTotalPrice()) }}</span> --}}
                          </div>
-                         <div class="d-flex justify-content-between mb-1">
+                         {{-- <div class="d-flex justify-content-between mb-1">
                             <span>Bag Discount</span>
                             <span class="text-success">-20$</span>
-                         </div>
-                         <div class="d-flex justify-content-between mb-1">
+                         </div> --}}
+                         {{-- <div class="d-flex justify-content-between mb-1">
                             <span>Estimated Tax</span>
                             <span>$15</span>
-                         </div>
+                         </div> --}}
                          <div class="d-flex justify-content-between mb-1">
                             <span>EMI Eligibility</span>
                             <span><a href="#">Details</a></span>
@@ -89,9 +95,14 @@
                          <hr>
                          <div class="d-flex justify-content-between">
                             <span class="text-dark"><strong>Total</strong></span>
-                            <span class="text-dark"><strong>$824</strong></span>
+                            <span class="text-dark"><strong>{{ number_format($cart->getTotalPrice()) }} VNĐ</strong></span>
                          </div>
-                         <a id="place-order" href="javascript:void();" class="btn btn-primary d-block mt-3 next">Place order</a>
+                         <div {{ Auth::user() ? '' : "hidden" }}>
+                            <a id="place-order" href="javascript:void();" class="btn btn-primary d-block mt-3 next">Place order</a>
+                         </div>
+                         <div {{ Auth::user() ? 'hidden' : '' }}>
+                            <a href="{{ route('login') }}" class="btn btn-primary d-block mt-3 next">Please log in to make a purchase</a>
+                         </div>
                       </div>
                    </div>
                    <div class="iq-card ">
@@ -123,11 +134,11 @@
           </div>
           <div id="address" class="card-block p-0 col-12">
              <div class="row align-item-center">
-                <div class="col-lg-8">
+                <div class="col-lg-12">
                    <div class="iq-card">
                       <div class="iq-card-header d-flex justify-content-between">
                          <div class="iq-header-title">
-                            <h4 class="card-title">Add New Address</h4>
+                            <h4 class="card-title">Add Address</h4>
                          </div>
                       </div>
                       <div class="iq-card-body">
@@ -136,7 +147,7 @@
                                <div class="col-md-6">
                                   <div class="form-group">
                                      <label>Full Name: *</label>
-                                     <input type="text" class="form-control" name="fname" required="">
+                                     <input value="{{ Auth::user() ? Auth::user()->full_name : '' }}" type="text" class="form-control" name="fname" required="">
                                   </div>
                                </div>
                                <div class="col-md-6">
@@ -185,25 +196,10 @@
                                   </div>
                                </div>
                                <div class="col-md-6">
-                                  <button id="savenddeliver" type="submit" class="btn btn-primary">Save And Deliver Here</button>
+                                  <button id="savenddeliver" type="submit" class="btn btn-primary">Continue</button>
                                </div>
                             </div>
                          </form>
-                      </div>
-                   </div>
-                </div>
-                <div class="col-lg-4">
-                   <div class="iq-card">
-                      <div class="iq-card-body">
-                         <h4 class="mb-2">Nik John</h4>
-                         <div class="shipping-address">
-                            <p class="mb-0">9447 Glen Eagles Drive</p>
-                            <p>Lewis Center, OH 43035</p>
-                            <p>UTC-5: Eastern Standard Time (EST)</p>
-                            <p>202-555-0140</p>
-                         </div>
-                         <hr>
-                         <a id="deliver-address" href="javascript:void();" class="btn btn-primary d-block mt-1 next">Deliver To this Address</a>
                       </div>
                    </div>
                 </div>
@@ -289,4 +285,71 @@
        </div>
     </div>
  </div>
+@endsection
+
+@section('script')
+<script type="text/javascript">
+    function remove(id){
+        $.ajax({
+            url: "{{ route('Cart.remove') }}",
+            method: "DELETE",
+            data: {
+                _token: "{{ csrf_token() }}",
+                id: id
+            },
+            success: function(response){
+                console.log(response);
+                alertify.success('Xóa sản phẩm thành công');
+                window.location.reload();
+            }
+        })
+    }
+
+    $("#btn-plus").click(function(e){
+        e.preventDefault()
+        var productID = $("#productID").val();
+        var quantity = $("#quantity").val();
+        var price = $("#price").val()
+        var toltalPrice = (price * (++quantity))
+        $("#totalPrice").html(toltalPrice + ' đ')
+
+        $.ajax({
+            url: "{{ route('Cart.update') }}",
+            method: "patch",
+            data: {
+                _token: "{{ csrf_token() }}",
+                id: productID,
+                quantity: quantity
+            },
+            success: function(response){
+                // console.log(response);
+                window.location.reload()
+            }
+        })
+    });
+
+    $("#btn-minus").click(function(e){
+        e.preventDefault()
+        var productID = $("#productID").val();
+
+        var quantity = $("#quantity").val();
+        var price = $("#price").val()
+        var toltalPrice = (price * (--quantity))
+        $("#totalPrice").html(toltalPrice + ' đ')
+
+        $.ajax({
+            url: "{{ route('Cart.update') }}",
+            method: "patch",
+            data: {
+                _token: "{{ csrf_token() }}",
+                id: productID,
+                quantity: quantity
+            },
+            success: function(response){
+                // console.log(response);
+                window.location.reload()
+            }
+        })
+    })
+</script>
 @endsection

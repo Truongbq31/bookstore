@@ -88,12 +88,12 @@
                                             <div class="iq-card-body p-0">
                                                 <div class="d-flex align-items-center">
                                                     <div class="col-6 p-0 position-relative image-overlap-shadow">
-                                                        <a href="javascript:void();"><img style="height: 200px"
+                                                        <a href="javascript:void();"><img style="height: 180px"
                                                                 class="img-fluid rounded w-100"
                                                                 src="{{ $book->image ? '' . Storage::url($book->image) : '' }}"
                                                                 alt="books-img"></a>
                                                         <div class="view-book">
-                                                            <a href="{{ route('bookdetail') }}"
+                                                            <a href="{{ route('bookdetail', ['id'=>$book->id]) }}"
                                                                 class="btn btn-sm btn-white">View Book</a>
                                                         </div>
                                                     </div>
@@ -114,10 +114,10 @@
                                                         </div>
                                                         <div class="price d-flex align-items-center">
                                                             {{-- <span class="pr-1 old-price"></span> --}}
-                                                            <h6><b>{{ number_format($book->price) }} VNĐ</b></h6>
+                                                            <h6><b>{{ number_format($book->price) }} đ</b></h6>
                                                         </div>
-                                                        <div class="iq-product-action">
-                                                            <a href="javascript:void();"><i
+                                                        <div class="iq-product-action mt-2">
+                                                            <a onclick="add({{ $book->id }})" href="javascript:"><i
                                                                     class="ri-shopping-cart-2-fill text-primary"></i></a>
                                                             <a href="javascript:void();" class="ml-2"><i
                                                                     class="ri-heart-fill text-danger"></i></a>
@@ -475,3 +475,4 @@
         </div>
     </div>
 @endsection
+
