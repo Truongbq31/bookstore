@@ -16,8 +16,11 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id');
-            $table->string('address');
-            $table->integer('status')->default(0);
+            $table->json('customer_info');
+            $table->json('order_detail');
+            $table->integer('total_price');
+            $table->integer('payment'); //0 - COD, 1 - Đã thanh toán
+            $table->integer('status')->default(0); //0 Chờ xác nhận , 1 - Đang vận chuyển , 2 - Hoàn tất
             $table->timestamps();
             $table->softDeletes();
         });

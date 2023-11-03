@@ -1,16 +1,18 @@
 <?php
 namespace App\Helpers;
+
+use Illuminate\Support\Facades\Session;
+
 class Cart{
     public $items = [];
     public $totalPrice = 0;
     public $totalQuantity = 0;
 
     public function __construct(){
-        $this->items = session('cart') ? session('cart') : [];
+        $this->items = Session::get("cart") ? Session::get("cart") : [];
     }
 
     public function getItems(){
-        // dd($this->items);
         return $this->items;
     }
 

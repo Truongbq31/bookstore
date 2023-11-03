@@ -15,10 +15,10 @@ class CartController extends Controller
 
     public function remove(Request $request){
         if($request->id){
-            $cart = session()->get('cart');
+            $cart = Session::get("cart");
             if(isset($cart[$request->id])){
                 unset($cart[$request->id]);
-                session()->put('cart', $cart);
+                Session::put('cart', $cart);
             }
         }
         return response()->json(['message'=> 'Success'],200);
@@ -26,7 +26,7 @@ class CartController extends Controller
 
     public function addToCart(Request $request){
         $product = Books::find($request->id);
-        $cart = session()->get('cart', []);
+        $cart = Session::get('cart',[]);
         if(isset($cart[$request->id])){
             $cart[$request->id]['quantity']++;
         }else{
@@ -38,16 +38,15 @@ class CartController extends Controller
                 'quantity' => 1
             ];
         }
-
-        session()->put('cart', $cart);
+        Session::put('cart', $cart);
         return response()->json(['message'=> 'Success'],200);
     }
 
     public function update(Request $request){
         if($request->id && $request->quantity){
-            $cart = session()->get('cart');
+            $cart = Session::get('cart');
             $cart[$request->id]['quantity'] = $request->quantity;
-            session()->put('cart', $cart);
+            Session::put('cart', $cart);
             return response()->json(['message'=> 'Success'], 200);
         }
     }
