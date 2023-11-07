@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Storage;
 
 class AccountSetting extends Controller
 {
@@ -27,6 +28,20 @@ class AccountSetting extends Controller
             }
         }
         return view('content.account.profile');
+    }
+
+    public function updateProfile(Request $request){
+        if($request->isMethod('POST')){
+            $params = $request->except('_token');
+            if($request->hasFile('avatar')){
+                Storage::delete('/public/'.Auth::user()->avatar);
+                $params['avatar'] = uploadFile('images', $request->file('avatar'));
+            }
+            $result = User::where('id', Auth::user()->id)->update($params);
+            if($result){
+                return redirect()->route('profileSetting')->with('success','Cập nhật thông tin thành công');
+            }
+        }
     }
     //
 }

@@ -18,8 +18,10 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->string('full_name');
+            $table->string('phone_number')->nullable();
             $table->string('avatar')->nullable();
             $table->integer('role')->default(0);
+            $table->integer('status')->default(1); //1 active - 0 block
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();

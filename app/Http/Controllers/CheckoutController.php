@@ -66,9 +66,9 @@ class CheckoutController extends Controller
         if (isset($vnp_BankCode) && $vnp_BankCode != "") {
             $inputData['vnp_BankCode'] = $vnp_BankCode;
         }
-        if (isset($vnp_Bill_State) && $vnp_Bill_State != "") {
-            $inputData['vnp_Bill_State'] = $vnp_Bill_State;
-        }
+        // if (isset($vnp_Bill_State) && $vnp_Bill_State != "") {
+        //     $inputData['vnp_Bill_State'] = $vnp_Bill_State;
+        // }
 
 //var_dump($inputData);
         ksort($inputData);
@@ -103,13 +103,16 @@ class CheckoutController extends Controller
             echo json_encode($returnData);
         }
     }else{
+        $order_id = '0123456789QWERTYUIOPASDFGHJKLZXCVBNM';
         $customer_info = [
             'fname' => $request->fname,
             'phone' => $request->phone,
             'address'=> $request->address
         ];
+
         $result = Orders::create([
             'user_id' => Auth::user()->id,
+            'order_id' => substr(str_shuffle($order_id), 0, 10),
             'customer_info' => json_encode($customer_info),
             'order_detail' => json_encode($cart->getItems()),
             'payment' => 0, // 0 COD
@@ -134,14 +137,18 @@ class CheckoutController extends Controller
     public function handlePayment(Cart $cart){
         // dd($_GET['fname'], $_GET['phone'], $_GET['address']);
         if($_GET['vnp_ResponseCode'] == 00){
+            $order_id = '0123456789QWERTYUIOPASDFGHJKLZXCVBNM';
             $customer_info = [
                 'fname' => $_GET['fname'],
                 'phone' => $_GET['phone'],
                 'address'=> $_GET['address'],
             ];
 
+
+
             $result = Orders::create([
                 'user_id' => Auth::user()->id,
+                'order_id' => substr(str_shuffle($order_id), 0, 10),
                 'customer_info' => json_encode($customer_info),
                 'order_detail' => json_encode($cart->getItems()),
                 'payment' => 1, //1 đã thanh toán

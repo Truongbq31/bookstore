@@ -3,6 +3,7 @@
 use App\Http\Controllers\Account\AccountSetting;
 use App\Http\Controllers\Account\LoginController;
 use App\Http\Controllers\Account\LogoutController;
+use App\Http\Controllers\Account\OrderTrackingController;
 use App\Http\Controllers\Account\RegisterController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AuthorController;
@@ -10,6 +11,7 @@ use App\Http\Controllers\Admin\BannersController;
 use App\Http\Controllers\Admin\BooksController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DataBoardController;
+use App\Http\Controllers\Admin\OrdersController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
@@ -82,19 +84,32 @@ Route::middleware(['auth'])->group(function(){
         Route::get('banners', [BannersController::class, 'banners'])->name('adminBanners');
         Route::get('banners-remove/{id}', [BannersController::class, 'remove'])->name('removeBanner');
         Route::match(['GET', 'POST'],'banners-add', [BannersController::class, 'add'])->name('addBanners');
-
         //End Banner
+
+        //Orders
+        Route::get('orders', [OrdersController::class,'index'])->name('Admin.orders');
+        Route::get('orders-update/{id}', [OrdersController::class,'updateStatus'])->name('Admin.updateStatus');
+        //End order
+
+        //User
         Route::get('list-user',[UserController::class,'listUser'])->name('adminListUser');
+        Route::post('user-update-status', [UserController::class,'updateUser'])->name('Admin.updateUser.status');
+        Route::post('user-update-role', [UserController::class,'updateRole'])->name('Admin.updateUser.role');
+        //End User
     });
+
+    Route::get('profile-setting', [AccountSetting::class, 'profileSetting'])->name('profileSetting');
+    Route::match(['GET','POST'],'profile-setting/change-password', [AccountSetting::class, 'changePassword'])->name('changePassword');
+
+    Route::get('/orders-tracking', [OrderTrackingController::class,'index'])->name('orderTracking');
+
+    Route::post('/person-profile', [AccountSetting::class,'updateProfile'])->name('updateProfile');
 });
 
 //Account
 Route::match(['GET','POST'], 'login',[LoginController::class,'login'])->name('login');
 Route::match(['GET','POST'], 'register',[RegisterController::class,'register'])->name('register');
 Route::get('logout', [LogoutController::class,'logout'])->name('logout');
-
-Route::get('profile-setting', [AccountSetting::class, 'profileSetting'])->name('profileSetting');
-Route::match(['GET','POST'],'profile-setting/change-password', [AccountSetting::class, 'changePassword'])->name('changePassword');
 
 
 

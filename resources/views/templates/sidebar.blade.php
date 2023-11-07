@@ -23,7 +23,7 @@
                 <ul id="dashboard" class="iq-submenu collapse show" data-parent="#iq-sidebar-toggle">
                    <li class="active"><a href="{{ route('index') }}"><i class="las la-house-damage"></i>Home Page</a></li>
                    <li><a href="{{ route('category') }}"><i class="ri-function-line"></i>Category Page</a></li>
-                   <li><a href="{{ route('Cart.index') }}"><i class="ri-checkbox-multiple-blank-line"></i>Checkout</a></li>
+                   <li><a href="{{ route('Cart.index') }}"><i class="ri-shopping-cart-fill"></i>Checkout</a></li>
                   <li><a href="{{ route('wishlist') }}"><i class="ri-heart-line"></i>wishlist</a></li>
                 </ul>
              </li>
@@ -34,11 +34,12 @@
                    <li><a href="{{ route('adminCategory') }}"><i class="ri-list-check-2"></i>Category Lists</a></li>
                    <li><a href="{{ route('adminAuthor') }}"><i class="ri-file-user-line"></i>Authors</a></li>
                    <li><a href="{{ route('adminBooks') }}"><i class="ri-book-2-line"></i>Books</a></li>
-                   <li><a href="{{ route('adminBanners') }}"><i class="ri-book-2-line"></i>Banners</a></li>
+                   <li><a href="{{ route('Admin.orders') }}"><i class="ri-shopping-cart-fill"></i>Orders</a></li>
+                   {{-- <li><a href="{{ route('adminBanners') }}"><i class="ri-book-2-line"></i>Banners</a></li> --}}
                 </ul>
              </li>
              <li {{ Session::has('admin') ? '' : 'hidden' }}>
-                <a href="#userinfo" class="iq-waves-effect" data-toggle="collapse" aria-expanded="false"><span class="ripple rippleEffect"></span><i class="las la-user-tie iq-arrow-left"></i><span>User</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
+                <a href="#userinfo" class="iq-waves-effect" data-toggle="collapse" aria-expanded="false"><span class="ripple rippleEffect"></span><i class="las la-user-tie iq-arrow-left"></i><span>User management</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
                 <ul id="userinfo" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle" style="">
                    {{-- <li><a href="profile.html"><i class="las la-id-card-alt"></i>User Profile</a></li> --}}
                    {{-- <li><a href="profile-edit.html"><i class="las la-edit"></i>User Edit</a></li> --}}

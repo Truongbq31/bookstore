@@ -92,7 +92,7 @@
                             <div class="iq-card-body p-0">
                                <div class="d-flex align-items-center">
                                   <div class="col-6 p-0 position-relative image-overlap-shadow">
-                                     <a href="javascript:void();"><img class="img-fluid rounded w-100" src="{{ $book->image ? ''.Storage::url($book->image) : '' }}" alt=""></a>
+                                     <a href="javascript:void();"><img class="img-fluid rounded w-100" src="{{ $book->image ? ''.Storage::url($book->image) : '' }}" alt="book-img"></a>
                                      <div class="view-book">
                                         <a href="{{ route('bookdetail', ['id'=>$book->id]) }}" class="btn btn-sm btn-white">View Book</a>
                                      </div>
@@ -172,7 +172,7 @@
                                   <a href="javascript:void();" class="ml-2"><i class="ri-heart-fill text-danger"></i></a>
                                </div>
                             </div>
-                      </div>
+                        /div>
                       </li>
                       <li class="col-md-3">
                          <div class="d-flex align-items-center">

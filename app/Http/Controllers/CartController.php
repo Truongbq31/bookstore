@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Helpers\Cart;
 use App\Models\Books;
+use DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
@@ -35,7 +36,8 @@ class CartController extends Controller
                 'product_name' => $product->bookName,
                 'price' => $product->price,
                 'image' => $product->image,
-                'quantity' => 1
+                'quantity' => 1,
+                'created_at' => date('Y-m-d H:i:s')
             ];
         }
         Session::put('cart', $cart);
