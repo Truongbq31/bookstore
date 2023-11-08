@@ -10,7 +10,7 @@
                        <div class="d-flex align-items-center">
                           <div class="rounded-circle iq-card-icon bg-primary"><i class="ri-user-line"></i></div>
                           <div class="text-left ml-3">
-                             <h2 class="mb-0"><span class="counter">5000</span></h2>
+                             <h2 class="mb-0"><span class="counter">{{ number_format($countUser) }}</span></h2>
                              <h5 class="">Users</h5>
                           </div>
                        </div>
@@ -23,7 +23,7 @@
                        <div class="d-flex align-items-center">
                           <div class="rounded-circle iq-card-icon bg-danger"><i class="ri-book-line"></i></div>
                           <div class="text-left ml-3">
-                             <h2 class="mb-0"><span class="counter">4.8</span>k</h2>
+                             <h2 class="mb-0"><span class="counter">{{ number_format($countBook) }}</span></h2>
                              <h5 class="">Books</h5>
                           </div>
                        </div>
@@ -36,7 +36,7 @@
                        <div class="d-flex align-items-center">
                           <div class="rounded-circle iq-card-icon bg-warning"><i class="ri-shopping-cart-2-line"></i></div>
                           <div class="text-left ml-3">
-                             <h2 class="mb-0"><span class="counter">1.2</span>k</h2>
+                             <h2 class="mb-0"><span class="counter">{{ number_format($Sum_sale) }}</span>đ</h2>
                              <h5 class="">Sale</h5>
                           </div>
                        </div>
@@ -49,7 +49,7 @@
                        <div class="d-flex align-items-center">
                           <div class="rounded-circle iq-card-icon bg-info"><i class="ri-radar-line"></i></div>
                           <div class="text-left ml-3">
-                             <h2 class="mb-0"><span class="counter">690</span></h2>
+                             <h2 class="mb-0"><span class="counter">{{ number_format($countOrder) }}</span></h2>
                              <h5 class="">Orders</h5>
                           </div>
                        </div>
@@ -159,56 +159,24 @@
                           <table class="table mb-0 table-borderless">
                              <thead>
                                 <tr>
-                                   <th scope="col">Client</th>
+                                   <th scope="col">Customer</th>
                                    <th scope="col">Date</th>
                                    <th scope="col">Invoice</th>
                                    <th scope="col">Amount</th>
-                                   <th scope="col">atatus</th>
-                                   <th scope="col">Action</th>
-
+                                   <th scope="col">Status</th>
                                 </tr>
                              </thead>
                              <tbody>
-                                <tr>
-                                   <td>Ira Membrit</td>
-                                   <td>18/10/2019</td>
-                                   <td>20156</td>
-                                   <td>$1500</td>
-                                   <td><div class="badge badge-pill badge-success">Paid</div></td>
-                                   <td>Copy</td>
-                                </tr>
-                                <tr>
-                                   <td>Pete Sariya</td>
-                                   <td>26/10/2019</td>
-                                   <td>7859</td>
-                                   <td>$2000</td>
-                                   <td><div class="badge badge-pill badge-success">Paid</div></td>
-                                   <td>Send Email</td>
-                                </tr>
-                                <tr>
-                                   <td>Cliff Hanger</td>
-                                   <td>18/11/2019</td>
-                                   <td>6396</td>
-                                   <td>$2500</td>
-                                   <td><div class="badge badge-pill badge-danger">Past Due</div></td>
-                                   <td>Before Due</td>
-                                </tr>
-                                <tr>
-                                   <td>Terry Aki</td>
-                                   <td>14/12/2019</td>
-                                   <td>7854</td>
-                                   <td>$5000</td>
-                                   <td><div class="badge badge-pill badge-success">Paid</div></td>
-                                   <td>Copy</td>
-                                </tr>
-                                <tr>
-                                   <td>Anna Mull</td>
-                                   <td>24/12/2019</td>
-                                   <td>568569</td>
-                                   <td>$10000</td>
-                                   <td><div class="badge badge-pill badge-success">Paid</div></td>
-                                   <td>Send Email</td>
-                                </tr>
+                                @foreach ($orderInfo as $info)
+                                    <tr>
+                                        <td>{{ $info->full_name }}</td>
+                                        <td>{{ $info->created_at }}</td>
+                                        <td>{{ $info->order_id }}</td>
+                                        <td>{{ number_format($info->total_price) }} đ</td>
+                                        <td><div class="badge badge-pill badge-success">{{ $info->payment == 0 ? "COD" : "PAID" }}</div></td>
+                                    </tr>
+                                @endforeach
+
                              </tbody>
                           </table>
                        </div>

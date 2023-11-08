@@ -145,6 +145,14 @@
                 }
             })
         }
+
+        window.onload = function(){
+            let getSession = sessionStorage.getItem("success");
+            if(getSession != null){
+                alertify.success(`${getSession}`);
+                sessionStorage.removeItem("success");
+            }
+        }
     </script>
    </body>
 

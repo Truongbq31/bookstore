@@ -23,8 +23,7 @@ class AccountSetting extends Controller
                 User::where('id', Auth::user()->id)->update([
                     'password' => $newPassword
                 ]);
-                Session::flash('success', 'Đổi mật khẩu thành công!');
-                return redirect()->route('profileSetting');
+                return redirect()->route('profileSetting')->with('success','Đổi mật khẩu thành công');
             }
         }
         return view('content.account.profile');

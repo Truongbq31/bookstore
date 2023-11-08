@@ -24,8 +24,7 @@ class AuthorController extends Controller
             }
             $author = Authors::create($params);
             if($author->id){
-                Session::flash('success', 'Thêm mới thành công!');
-                return redirect()->route('adminAuthor');
+                return redirect()->route('adminAuthor')->with('success','Thêm mới thành công!');
             }
         }
         return view('content.admin.author.addAuthor');
