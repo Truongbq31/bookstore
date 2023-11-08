@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Admin\Authors;
 use App\Models\Books;
 use App\Models\Banners;
+use App\Models\Reviews;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -31,7 +32,14 @@ class ClientController extends Controller
     }
     public function bookDetail($id){
         $book = Books::find($id);
-        return view('content.bookdetail', compact('book'));
+        $reviews = DB::table('reviews')->join('users','users.id','=','reviews.user_id')
+        ->join('books','books.id','=','reviews.book_id')
+        ->where('reviews.book_id','=', $book->id)
+        ->orderBy('reviews.created_at','desc')
+        ->limit(5)
+        ->get();
+        // dd($reviews);
+        return view('content.bookdetail', compact('book', 'reviews'));
     }
     public function checkOut(){
         return view('content.checkout');

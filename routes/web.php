@@ -16,6 +16,7 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\Client\ClientController;
+use App\Http\Controllers\ReviewController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -51,6 +52,10 @@ Route::prefix('bookstore')->group(function(){
     //Checkout
     Route::post('/payment', [CheckoutController::class,'checkout'])->name('payment');
     Route::get('/handlePayment', [CheckoutController::class,'handlePayment'])->name('handlePayment');
+
+    //Comment
+    Route::post('/book-detail/comment', [ReviewController::class,'pushComment'])->name('pushComment');
+    //End comment
 });
 
 //Admin

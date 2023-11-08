@@ -20,7 +20,7 @@ class RegisterController extends Controller
             ]);
 
             if($newUser){
-                echo "<script>alert(`Đăng kí tài khoản thành công`)</script>";
+                echo "<script>sessionStorage.setItem('success', 'Đăng kí tài khoản thành công')</script>";
             }
         }
         return view('content.account.register');

@@ -39,7 +39,7 @@ class BooksController extends Controller
             // dd($newBook->id);
 
             if($newBook->id){
-                Session::flash('success', 'Thêm mới thành công!');
+                Session::flash('success', 'Thêm sách thành công!');
                 return redirect()->route('adminBooks');
             }
         }

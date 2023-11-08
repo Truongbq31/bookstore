@@ -140,8 +140,23 @@
                 },
                 success: function(response){
                     console.log(response);
+                    $("#mini-cart").html(response)
                     alertify.success('Thêm sản phẩm thành công!');
-                    window.location.reload();
+                }
+            })
+        }
+        function removeCart(id){
+            $.ajax({
+                url: "{{ route('Cart.remove') }}",
+                method: "DELETE",
+                data: {
+                    _token: "{{ csrf_token() }}",
+                    id: id
+                },
+                success: function(response){
+                    console.log(response);
+                    $("#mini-cart").html(response)
+                    alertify.success('Xóa sản phẩm thành công');
                 }
             })
         }

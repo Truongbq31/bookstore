@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->integer('book_id');
             $table->integer('user_id');
-            $table->integer('rating');
+            $table->integer('rating')->nullable();
             $table->string('comment');
             $table->timestamps();
             $table->softDeletes();

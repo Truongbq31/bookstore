@@ -177,7 +177,9 @@
                    </div>
                 </li>
                 {{-- Mini Cart --}}
-                @include('content.miniCart')
+                <div id="mini-cart">
+                    @include('content.miniCart')
+                </div>
                 {{-- End --}}
                 <li {{ Auth::user() ? '' : 'hidden' }} class="line-height pt-3">
                    <a href="#" class="search-toggle iq-waves-effect d-flex align-items-center">

@@ -21,8 +21,17 @@ class CartController extends Controller
                 unset($cart[$request->id]);
                 Session::put('cart', $cart);
             }
+            return view('content.miniCart', compact('cart'));
         }
-        return response()->json(['message'=> 'Success'],200);
+        if($request->id_key){
+            $cart = Session::get("cart");
+            if(isset($cart[$request->id_key])){
+                unset($cart[$request->id_key]);
+                Session::put('cart', $cart);
+            }
+            return view('content.list-cart-checkout', compact('cart'));
+        }
+
     }
 
     public function addToCart(Request $request){
@@ -41,7 +50,7 @@ class CartController extends Controller
             ];
         }
         Session::put('cart', $cart);
-        return response()->json(['message'=> 'Success'],200);
+        return view('content.miniCart', compact('cart'));
     }
 
     public function update(Request $request){

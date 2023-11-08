@@ -126,7 +126,29 @@
       <script src="{{asset('js/chart-custom.js')}}"></script>
       <!-- Custom JavaScript -->
       <script src="{{asset('js/custom.js')}}"></script>
-   </body>
+
+      <!-- JavaScript -->
+      <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+      <!-- Default theme -->
+      <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
+      <!-- Semantic UI theme -->
+      <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.min.css"/>
+      <!-- Bootstrap theme -->
+      <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css"/>
+
+    <script>
+        window.onload = function(){
+            let getSession = sessionStorage.getItem("success");
+            if(getSession != null){
+                alertify.success(`${getSession}`);
+                sessionStorage.removeItem("success");
+            }
+        }
+    </script>
+</body>
 
 <!-- Mirrored from templates.iqonic.design/booksto/html/sign-in.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 16 Sep 2023 07:56:05 GMT -->
 </html>
