@@ -19,11 +19,33 @@ class ReviewController extends Controller
             $reviews = DB::table('reviews')->join('users','users.id','=','reviews.user_id')
             ->join('books','books.id','=','reviews.book_id')
             ->where('reviews.book_id','=', $request->book_id)
+            ->where('reviews.status','=', 1)
             ->orderBy('reviews.created_at','desc')
             ->limit(5)
             ->get();
             return view('content.list-comment', compact('reviews'));
         }
+    }
+
+    public function index(){
+        $comments = DB::table('reviews')
+        ->join('users','users.id','=','reviews.user_id')
+        ->join('books','books.id','=','reviews.book_id')
+        ->select('reviews.*','books.bookName','users.full_name')
+        ->orderBy('reviews.created_at','desc')
+        ->get();
+        // dd($comments);
+        return view('content.admin.comments.comments', compact('comments'));
+    }
+
+    public function actionComment($id){
+        $comment = Reviews::find($id);
+        if($comment->status === 0){
+            Reviews::where('id', $id)->update(['status'=> 1]);
+        }else{
+            Reviews::where('id', $id)->update(['status'=> 0]);
+        }
+        return redirect()->route('Admin.comments')->with('success','Cập nhật trạng thái thành công!');
     }
     //
 }

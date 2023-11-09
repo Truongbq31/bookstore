@@ -88,8 +88,15 @@
             url: "{{ route('orderTracking') }}",
             type: "GET"
         }).done(function(response){
-            // console.log(response);
             document.querySelector("tbody").innerHTML = response.map((order, index)=>{
+                let status = '';
+                if(order.status == 0){
+                    status = "Chờ cửa hàng xác nhận";
+                }else if(order.status == 1){
+                    status = "Đơn hàng đã được chuẩn bị và đợi đơn vị vận chuyển";
+                }else{
+                    status = "Hoàn thành";
+                }
                 return `
                     <tr>
                         <td>${index + 1}</td>
@@ -98,7 +105,7 @@
                         <td>${order.order_detail[index].product_name}</td>
                         <td>${order.total_price} đ</td>
                         <td>${order.payment == 1 ? 'Đã thanh toán' : 'Chưa thanh toán'}</td>
-                        <td>${order.status}</td>
+                        <td>${status}</td>
                     </tr>
                 `
             }).join('');

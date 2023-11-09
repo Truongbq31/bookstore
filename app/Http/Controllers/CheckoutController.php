@@ -128,7 +128,7 @@ class CheckoutController extends Controller
             Session::put('cart', $cart);
         }
         // dd($cart);
-        return redirect()->route('Cart.index');
+        return redirect()->route('Cart.index')->with('success','Đặt hàng thành công!');
     }
 
         // vui lòng tham khảo thêm tại code demo
@@ -164,7 +164,7 @@ class CheckoutController extends Controller
                 Session::put('cart', $cart);
             }
             // dd($cart);
-            return redirect()->route('Cart.index');
+            return redirect()->route('Cart.index')->with('success','Đặt hàng thành công!');
         }else{
             return redirect()->route('Cart.index');
         }

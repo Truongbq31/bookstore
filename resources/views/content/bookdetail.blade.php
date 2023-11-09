@@ -15,11 +15,11 @@
                          <div class="iq-card-transparent iq-card-block iq-card-stretch iq-card-height">
                             <div class="iq-card-body p-0">
                                <div class="row align-items-center">
-                                  <div class="col-3">
+                                  {{-- <div class="col-3">
                                      <ul id="description-slider-nav" class="list-inline p-0 m-0  d-flex align-items-center">
                                         <li>
                                            <a href="javascript:void(0);">
-                                           <img src="" class="img-fluid rounded w-100" alt="">
+                                           <img src="{{ ''.Storage::url($book->image) }}" class="img-fluid rounded w-100" alt="">
                                            </a>
                                         </li>
                                         <li>
@@ -48,37 +48,12 @@
                                            </a>
                                         </li>
                                      </ul>
-                                  </div>
-                                  <div class="col-9">
+                                  </div> --}}
+                                  <div class="col-12">
                                      <ul id="description-slider" class="list-inline p-0 m-0  d-flex align-items-center">
                                         <li>
                                            <a href="javascript:void(0);">
-                                           <img src="images/book-dec/01.jpg" class="img-fluid w-100 rounded" alt="">
-                                           </a>
-                                        </li>
-                                        <li>
-                                           <a href="javascript:void(0);">
-                                           <img src="images/book-dec/02.jpg" class="img-fluid w-100 rounded" alt="">
-                                           </a>
-                                        </li>
-                                        <li>
-                                           <a href="javascript:void(0);">
-                                           <img src="images/book-dec/03.jpg" class="img-fluid w-100 rounded" alt="">
-                                           </a>
-                                        </li>
-                                        <li>
-                                           <a href="javascript:void(0);">
-                                           <img src="images/book-dec/04.jpg" class="img-fluid w-100 rounded" alt="">
-                                           </a>
-                                        </li>
-                                        <li>
-                                           <a href="javascript:void(0);">
-                                           <img src="images/book-dec/05.jpg" class="img-fluid w-100 rounded" alt="">
-                                           </a>
-                                        </li>
-                                        <li>
-                                           <a href="javascript:void(0);">
-                                           <img src="images/book-dec/06.jpg" class="img-fluid w-100 rounded" alt="">
+                                           <img width="100%" src="{{ ''.Storage::url($book->image) }}" class="img-fluid rounded" alt="">
                                            </a>
                                         </li>
                                      </ul>
@@ -106,13 +81,16 @@
                                     </span>
                                 </div>
                                 <span class="text-dark mb-4 pb-4 iq-border-bottom d-block">{{ $book->description }}</span>
-                                <div class="text-primary mb-4">Author: <span class="text-body">{{ $book->author_id }}</span></div>
+
+                                <div class="text-primary mb-4">Category: <span class="text-body">{{ $book->cate_name }}</span></div>
+
+                                <div class="text-primary mb-4">Author: <span class="text-body">{{ $book->name }}</span></div>
                                 <a onclick="add({{ $book->id }})" href="javascript:" type="submit" class="btn btn-primary view-more mr-2">Add To Cart</a>
 
-                               <div class="mb-3 mt-4">
+                               <div class="mb-3 mt-5">
                                   <a href="#" class="text-body text-center"><span class="avatar-30 rounded-circle bg-primary d-inline-block mr-2"><i class="ri-heart-fill"></i></span><span>Add to Wishlist</span></a>
                                </div>
-                               <div class="iq-social d-flex align-items-center">
+                               <div class="iq-social d-flex align-items-center mt-5">
                                   <h5 class="mr-2">Share:</h5>
                                   <ul class="list-inline d-flex p-0 mb-0 align-items-center">
                                      <li>
@@ -188,91 +166,49 @@
                 </div>
                 <div class="iq-card-body single-similar-contens">
                    <ul id="single-similar-slider" class="list-inline p-0 mb-0 row">
-                      <li class="col-md-3">
-                         <div class="row align-items-center">
-                            <div class="col-5">
-                               <div class="position-relative image-overlap-shadow">
-                                  <a href="javascript:void();"><img class="img-fluid rounded w-100" src="images/similar-books/01.jpg" alt=""></a>
-                                  <div class="view-book">
-                                     <a href="book-page.html" class="btn btn-sm btn-white">View Book</a>
-                                  </div>
-                               </div>
-                            </div>
-                            <div class="col-7 pl-0">
-                               <h6 class="mb-2">The Book of treasure Island find...</h6>
-                               <p class="text-body">Author : Tara Zona</p>
-                               <a href="#" class="text-dark" tabindex="-1">Read Now<i class="ri-arrow-right-s-line"></i></a>
-                            </div>
-                         </div>
-                      </li>
-                      <li class="col-md-3">
-                         <div class="row align-items-center">
-                            <div class="col-5">
-                               <div class="position-relative image-overlap-shadow">
-                                  <a href="javascript:void();"><img class="img-fluid rounded w-100" src="images/similar-books/02.jpg" alt=""></a>
-                                  <div class="view-book">
-                                     <a href="book-page.html" class="btn btn-sm btn-white">View Book</a>
-                                  </div>
-                               </div>
-                            </div>
-                            <div class="col-7 pl-0">
-                               <h6 class="mb-2">Set For Lifr Being Scott Trench..</h6>
-                               <p class="text-body">Author : Anna Rexia</p>
-                               <a href="#" class="text-dark" tabindex="-1">Read Now<i class="ri-arrow-right-s-line"></i></a>
-                            </div>
-                         </div>
-                      </li>
-                      <li class="col-md-3">
-                         <div class="row align-items-center">
-                            <div class="col-5">
-                               <div class="position-relative image-overlap-shadow">
-                                  <a href="javascript:void();"><img class="img-fluid rounded w-100" src="images/similar-books/03.jpg" alt=""></a>
-                                  <div class="view-book">
-                                     <a href="book-page.html" class="btn btn-sm btn-white">View Book</a>
-                                  </div>
-                               </div>
-                            </div>
-                            <div class="col-7 pl-0">
-                               <h6 class="mb-2">A Birth and Evolutions of the Soul...</h6>
-                               <p class="text-body">Author : Bill Emia</p>
-                               <a href="#" class="text-dark" tabindex="-1">Read Now<i class="ri-arrow-right-s-line"></i></a>
-                            </div>
-                         </div>
-                      </li>
-                      <li class="col-md-3">
-                         <div class="row align-items-center">
-                            <div class="col-5">
-                               <div class="position-relative image-overlap-shadow">
-                                  <a href="javascript:void();"><img class="img-fluid rounded w-100" src="images/similar-books/04.jpg" alt=""></a>
-                                  <div class="view-book">
-                                     <a href="book-page.html" class="btn btn-sm btn-white">View Book</a>
-                                  </div>
-                               </div>
-                            </div>
-                            <div class="col-7 pl-0">
-                               <h6 class="mb-2">The Nature of world Beautiful Places.</h6>
-                               <p class="text-body">Author : Hal Appeno</p>
-                               <a href="#" class="text-dark" tabindex="-1">Read Now<i class="ri-arrow-right-s-line"></i></a>
-                            </div>
-                         </div>
-                      </li>
-                      <li class="col-md-3">
-                         <div class="row align-items-center">
-                            <div class="col-5">
-                               <div class="position-relative image-overlap-shadow">
-                                  <a href="javascript:void();"><img class="img-fluid rounded w-100" src="images/similar-books/05.jpg" alt=""></a>
-                                  <div class="view-book">
-                                     <a href="book-page.html" class="btn btn-sm btn-white">View Book</a>
-                                  </div>
-                               </div>
-                            </div>
-                            <div class="col-7 pl-0">
-                               <h6 class="mb-2">The mackup magazine find books..</h6>
-                               <p class="text-body">Author : Zack Lee</p>
-                               <a href="#" class="text-dark" tabindex="-1">Read Now<i class="ri-arrow-right-s-line"></i></a>
-                            </div>
-                         </div>
-                      </li>
+                        @foreach ($allBook as $books)
+                        @if ($books->author_id === $book->author_id || $books->category_id === $book->category_id)
+                            @if ($books->id != $book->id)
+                                <li class="col-md-3">
+                                    <div class="row align-items-center">
+                                    <div class="col-5">
+                                        <div class="position-relative image-overlap-shadow">
+                                            <a href="javascript:void();"><img width="100%" height="100px" class="img-fluid rounded" src="{{ ''.Storage::url($books->image) }}" alt=""></a>
+                                            <div class="view-book">
+                                                <a href="{{ route('bookdetail', ['id'=>$books->id]) }}" class="btn btn-sm btn-white">View Book</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-7 pl-0">
+                                        <h6 class="mb-2">{{ $books->bookName }}</h6>
+                                        <p class="text-body">Category: {{ $book->cate_name }} </p>
+                                        <p class="text-body">Author: {{ $book->name }} </p>
+                                        <a href="{{ route('bookdetail', ['id'=>$books->id]) }}" class="text-dark" tabindex="-1">Read Now<i class="ri-arrow-right-s-line"></i></a>
+                                    </div>
+                                    </div>
+                                </li>
+
+                                <li class="col-md-3">
+                                    <div class="row align-items-center">
+                                    <div class="col-5">
+                                        <div class="position-relative image-overlap-shadow">
+                                            <a href="javascript:void();"><img width="100%" height="100px" class="img-fluid rounded" src="{{ ''.Storage::url($books->image) }}" alt=""></a>
+                                            <div class="view-book">
+                                                <a href="{{ route('bookdetail', ['id'=>$books->id]) }}" class="btn btn-sm btn-white">View Book</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-7 pl-0">
+                                        <h6 class="mb-2">{{ $books->bookName }}</h6>
+                                        <p class="text-body">Category: {{ $book->cate_name }} </p>
+                                        <p class="text-body">Author: {{ $book->name }} </p>
+                                        <a href="{{ route('bookdetail', ['id'=>$books->id]) }}" class="text-dark" tabindex="-1">Read Now<i class="ri-arrow-right-s-line"></i></a>
+                                    </div>
+                                    </div>
+                                </li>
+                            @endif
+                        @endif
+                        @endforeach
                    </ul>
                 </div>
              </div>
@@ -484,114 +420,6 @@
                                   <a href="javascript:void();"><i class="ri-shopping-cart-2-fill text-primary"></i></a>
                                   <a href="javascript:void();" class="ml-2"><i class="ri-heart-fill text-danger"></i></a>
                                </div>
-                            </div>
-                         </div>
-                      </li>
-                   </ul>
-                </div>
-             </div>
-          </div>
-          <div class="col-lg-12">
-             <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
-                <div class="iq-card-header d-flex justify-content-between align-items-center position-relative">
-                   <div class="iq-header-title">
-                      <h4 class="card-title mb-0">Favorite Reads</h4>
-                   </div>
-                   <div class="iq-card-header-toolbar d-flex align-items-center">
-                      <a href="category.html" class="btn btn-sm btn-primary view-more">View More</a>
-                   </div>
-                </div>
-                <div class="iq-card-body favorites-contens">
-                   <ul id="favorites-slider" class="list-inline p-0 mb-0 row">
-                      <li class="col-md-4">
-                         <div class="d-flex align-items-center">
-                            <div class="col-5 p-0 position-relative">
-                               <a href="javascript:void();">
-                                  <img src="images/favorite/01.jpg" class="img-fluid rounded w-100" alt="">
-                               </a>
-                            </div>
-                            <div class="col-7">
-                               <h5 class="mb-2">Every Book is a new Wonderful Travel..</h5>
-                               <p class="mb-2">Author : Pedro Araez</p>
-                               <div class="d-flex justify-content-between align-items-center text-dark font-size-13">
-                                  <span>Reading</span>
-                                  <span class="mr-4">78%</span>
-                               </div>
-                               <div class="iq-progress-bar-linear d-inline-block w-100">
-                                  <div class="iq-progress-bar iq-bg-primary">
-                                     <span class="bg-primary" data-percent="78"></span>
-                                  </div>
-                               </div>
-                               <a href="#" class="text-dark">Read Now<i class="ri-arrow-right-s-line"></i></a>
-                            </div>
-                         </div>
-                      </li>
-                      <li class="col-md-4">
-                         <div class="d-flex align-items-center">
-                            <div class="col-5 p-0 position-relative">
-                               <a href="javascript:void();">
-                                  <img src="images/favorite/02.jpg" class="img-fluid rounded w-100" alt="">
-                               </a>
-                            </div>
-                            <div class="col-7">
-                               <h5 class="mb-2">Casey Christie night book into find...</h5>
-                               <p class="mb-2">Author : Michael klock</p>
-                               <div class="d-flex justify-content-between align-items-center text-dark font-size-13">
-                                  <span>Reading</span>
-                                  <span class="mr-4">78%</span>
-                               </div>
-                               <div class="iq-progress-bar-linear d-inline-block w-100">
-                                  <div class="iq-progress-bar iq-bg-danger">
-                                     <span class="bg-danger" data-percent="78"></span>
-                                  </div>
-                               </div>
-                               <a href="#" class="text-dark">Read Now<i class="ri-arrow-right-s-line"></i></a>
-                            </div>
-                         </div>
-                      </li>
-                      <li class="col-md-4">
-                         <div class="d-flex align-items-center">
-                            <div class="col-5 p-0 position-relative">
-                               <a href="javascript:void();">
-                                  <img src="images/favorite/03.jpg" class="img-fluid rounded w-100" alt="">
-                               </a>
-                            </div>
-                            <div class="col-7">
-                               <h5 class="mb-2">The Secret to English Busy People..</h5>
-                               <p class="mb-2">Author : Daniel Ace</p>
-                               <div class="d-flex justify-content-between align-items-center text-dark font-size-13">
-                                  <span>Reading</span>
-                                  <span class="mr-4">78%</span>
-                               </div>
-                               <div class="iq-progress-bar-linear d-inline-block w-100">
-                                  <div class="iq-progress-bar iq-bg-info">
-                                     <span class="bg-info" data-percent="78"></span>
-                                  </div>
-                               </div>
-                               <a href="#" class="text-dark">Read Now<i class="ri-arrow-right-s-line"></i></a>
-                            </div>
-                         </div>
-                      </li>
-                      <li class="col-md-4">
-                         <div class="d-flex align-items-center">
-                            <div class="col-5 p-0 position-relative">
-                               <a href="javascript:void();">
-                                  <img src="images/favorite/04.jpg" class="img-fluid rounded w-100" alt="">
-                               </a>
-                            </div>
-                            <div class="col-7">
-                               <h5 class="mb-2">The adventures of Robins books...</h5>
-                               <p class="mb-2">Author : Luka Afton</p>
-                               <div class="d-flex justify-content-between align-items-center text-dark font-size-13">
-                                  <span>Reading</span>
-                                  <span class="mr-4">78%</span>
-                               </div>
-                               <div class="iq-progress-bar-linear d-inline-block w-100">
-                                  <div class="iq-progress-bar iq-bg-success">
-                                     <span class="bg-success" data-percent="78"></span>
-                                  </div>
-                               </div>
-                               <a href="#" class="text-dark">Read Now<i class="ri-arrow-right-s-line"></i></a>
                             </div>
                          </div>
                       </li>

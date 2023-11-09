@@ -101,6 +101,12 @@ Route::middleware(['auth'])->group(function(){
         Route::post('user-update-status', [UserController::class,'updateUser'])->name('Admin.updateUser.status');
         Route::post('user-update-role', [UserController::class,'updateRole'])->name('Admin.updateUser.role');
         //End User
+
+
+        //Comment
+        Route::get('/comments', [ReviewController::class,'index'])->name('Admin.comments');
+        Route::get('/comments-actions/{id}', [ReviewController::class,'actionComment'])->name('Admin.actionComment');
+        //End comment
     });
 
     Route::get('profile-setting', [AccountSetting::class, 'profileSetting'])->name('profileSetting');

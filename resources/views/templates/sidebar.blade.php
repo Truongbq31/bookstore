@@ -35,16 +35,9 @@
                    <li><a href="{{ route('adminAuthor') }}"><i class="ri-file-user-line"></i>Authors</a></li>
                    <li><a href="{{ route('adminBooks') }}"><i class="ri-book-2-line"></i>Books</a></li>
                    <li><a href="{{ route('Admin.orders') }}"><i class="ri-shopping-cart-fill"></i>Orders</a></li>
-                   {{-- <li><a href="{{ route('adminBanners') }}"><i class="ri-book-2-line"></i>Banners</a></li> --}}
-                </ul>
-             </li>
-             <li {{ Session::has('admin') ? '' : 'hidden' }}>
-                <a href="#userinfo" class="iq-waves-effect" data-toggle="collapse" aria-expanded="false"><span class="ripple rippleEffect"></span><i class="las la-user-tie iq-arrow-left"></i><span>User management</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
-                <ul id="userinfo" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle" style="">
-                   {{-- <li><a href="profile.html"><i class="las la-id-card-alt"></i>User Profile</a></li> --}}
-                   {{-- <li><a href="profile-edit.html"><i class="las la-edit"></i>User Edit</a></li> --}}
-                   <li><a href="{{ route('adminListUser') }}"><i class="las la-th-list"></i>User List</a></li>
-                   <li><a href="user-list.html"><i class="las la-edit"></i>Decentralization</a></li>
+                   <li><a href="{{ route('Admin.comments') }}"><i class="ri-message-3-fill"></i>Comments</a></li>
+
+                   <li><a href="{{ route('adminListUser') }}"><i class="las la-user-tie iq-arrow-left"></i>User Manager</a></li>
                 </ul>
              </li>
 

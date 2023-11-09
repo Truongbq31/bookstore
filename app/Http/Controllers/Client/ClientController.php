@@ -31,15 +31,30 @@ class ClientController extends Controller
         return view('content.category', compact('books'));
     }
     public function bookDetail($id){
-        $book = Books::find($id);
+        $allBook = DB::table('books')->join('authors','authors.id','=','books.author_id')
+        ->join('categories','categories.id','=','books.category_id')
+        ->whereNull('books.deleted_at')
+        ->select('books.*','authors.name', 'categories.name as cate_name')
+        ->get();
+        // dd($allBook);
+
+        $book = DB::table('books')->join('authors','authors.id','=','books.author_id')
+        ->join('categories','categories.id','=','books.category_id')
+        ->where('books.id', $id)
+        ->whereNull('books.deleted_at')
+        ->select('books.*','authors.name', 'categories.name as cate_name')
+        ->first();
+        // dd($book);
+
         $reviews = DB::table('reviews')->join('users','users.id','=','reviews.user_id')
         ->join('books','books.id','=','reviews.book_id')
-        ->where('reviews.book_id','=', $book->id)
+        ->where('reviews.book_id','=', $id)
+        ->where('reviews.status','=',1)
         ->orderBy('reviews.created_at','desc')
         ->limit(5)
         ->get();
         // dd($reviews);
-        return view('content.bookdetail', compact('book', 'reviews'));
+        return view('content.bookdetail', compact('book', 'reviews', 'allBook'));
     }
     public function checkOut(){
         return view('content.checkout');
