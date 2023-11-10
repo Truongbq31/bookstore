@@ -21,8 +21,8 @@
              <li class="active active-menu">
                 <a href="#dashboard" class="iq-waves-effect" data-toggle="collapse" aria-expanded="true"><span class="ripple rippleEffect"></span><i class="las la-home iq-arrow-left"></i><span>Shop</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
                 <ul id="dashboard" class="iq-submenu collapse show" data-parent="#iq-sidebar-toggle">
-                   <li class="active"><a href="{{ route('index') }}"><i class="las la-house-damage"></i>Home Page</a></li>
-                   <li><a href="{{ route('category') }}"><i class="ri-function-line"></i>Category Page</a></li>
+                   <li class="active"><a href="{{ route('index') }}"><i class="las la-house-damage"></i>Home</a></li>
+                   <li><a href="{{ route('category') }}"><i class="ri-function-line"></i>Store</a></li>
                    <li><a href="{{ route('Cart.index') }}"><i class="ri-shopping-cart-fill"></i>Checkout</a></li>
                   <li><a href="{{ route('wishlist') }}"><i class="ri-heart-line"></i>wishlist</a></li>
                 </ul>

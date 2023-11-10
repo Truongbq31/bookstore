@@ -168,6 +168,25 @@
                 sessionStorage.removeItem("success");
             }
         }
+
+        // Search
+        $(document).ready(function() {
+        $("#input-search").change(function(e){
+            let inputValue = document.querySelector("#input-search").value;
+            $.ajax({
+            url: "{{ route('Client.search') }}",
+            method: "POST",
+            data: {
+                _token: "{{ csrf_token() }}",
+                search: inputValue
+            },
+            success: function(response){
+                console.log(response);
+                $("#result-search").html(response);
+            }
+        })
+        })
+    });
     </script>
    </body>
 

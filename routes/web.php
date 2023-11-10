@@ -56,6 +56,9 @@ Route::prefix('bookstore')->group(function(){
     //Comment
     Route::post('/book-detail/comment', [ReviewController::class,'pushComment'])->name('pushComment');
     //End comment
+
+    //Search
+    Route::post('/search', [ClientController::class,'getBooksBySearch'])->name('Client.search');
 });
 
 //Admin

@@ -23,12 +23,7 @@
                 </ul>
              </nav>
           </div>
-          <div class="iq-search-bar">
-             <form action="#" class="searchbox">
-                <input type="text" class="text search-input" placeholder="Search Here...">
-                <a class="search-link" href="#"><i class="ri-search-line"></i></a>
-             </form>
-          </div>
+
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"  aria-label="Toggle navigation">
           <i class="ri-menu-3-line"></i>
           </button>

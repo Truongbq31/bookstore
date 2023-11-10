@@ -23,8 +23,10 @@ class ClientController extends Controller
         return view('content.index', compact('books', 'banners'));
     }
     public function category(){
-        $books = DB::table('books')->join('authors', 'authors.id', '=', 'books.author_id')
-        ->select('books.*', 'authors.name as author_name')
+        $books = DB::table('books')
+        ->join('authors', 'authors.id', '=', 'books.author_id')
+        ->join('categories','categories.id','=','books.category_id')
+        ->select('books.*', 'authors.name as author_name', 'categories.name as cate_name')
         ->whereNull('books.deleted_at')
         ->get();
         // dd($books);
@@ -61,6 +63,19 @@ class ClientController extends Controller
     }
     public function wishList(){
         return view('content.wishlist');
+    }
+
+    public function getBooksBySearch(Request $request){
+        $keyWords = $request->search;
+        $books = DB::table('books')
+        ->join('authors', 'authors.id' ,'=','books.author_id')
+        ->join('categories','categories.id','=','books.category_id')
+        ->select('books.*', 'authors.name as author_name', 'categories.name as cate_name')
+        ->orWhere('books.bookName','like','%'.$request->search.'%')
+        ->orWhere('categories.name','like','%'.$request->search.'%')
+        ->orWhere('authors.name','like','%'.$request->search.'%')
+        ->get();
+        return view('content.book-by-search', compact('books', 'keyWords'));
     }
     //
 }

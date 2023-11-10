@@ -129,7 +129,7 @@
 
                     <div {{ Auth::user() ? '' : 'hidden' }} class="col-md-6">
                         <div class="load-moer-btn">
-                           <h6 class="primary-btn3">Hello {{ Auth::user()->full_name }}, comment here...!</h6>
+                           <h6 class="primary-btn3">Hello {{ Auth::user() ? Auth::user()->full_name : '' }}, comment here...!</h6>
                        </div>
                         <form class="mt-3" style="border: 1px solid greenyellow; border-radius: 10px">
                             <div class="form-inner">
