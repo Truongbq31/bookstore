@@ -208,7 +208,7 @@
             success: function(response){
                 // console.log(response);
                 $("#list-cart-checkout").html(response);
-                $("#mini-cart").html(response);
+                window.location.reload()
                 alertify.success('Xóa sản phẩm thành công');
             }
         })

@@ -20,7 +20,7 @@
                         <p class="mb-0"> x{{ $item['quantity'] }}</p>
                         <b class="mb-0">{{ $item['product_name'] }}</b>
                     </div>
-                    <a onclick="removeCart({{ $item['productID'] }})" href="javascript:" class="btn btn-danger mr-2"><i class="ri-close-fill"></i>
+                    <a onclick="removeMiniCart({{ $item['productID'] }})" href="javascript:" class="btn btn-danger mr-2"><i class="ri-close-fill"></i>
                     </a>
                     </div>
                 </div>

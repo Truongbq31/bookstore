@@ -146,7 +146,7 @@
             })
         }
 
-        function removeCart(id){
+        function removeMiniCart(id){
             $.ajax({
                 url: "{{ route('Cart.remove') }}",
                 method: "DELETE",
