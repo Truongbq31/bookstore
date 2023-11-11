@@ -13,7 +13,7 @@
                          <li class="search-menu-opt">
                             <div class="iq-search-bar search-book d-flex align-items-center">
                                <form style="width: 500px" action="#" class="searchbox">
-                                  <input id="input-search" type="text" class="text search-input" placeholder="Search by Authors, Category, Book Name,...">
+                                  <input onchange="searchBook()" id="input-search" type="text" class="text search-input" placeholder="Search by Author, Category, Book Name,...">
                                   <a class="search-link" href="#"><i class="ri-search-line"></i></a>
                                </form>
                                <button type="button" class="btn btn-primary search-data ml-2">Search</button>
@@ -24,12 +24,24 @@
                 </div>
              </div>
 
-             <div class="iq-card">
-                <div class="iq-card-body" id="result-search">
-                    <div class="iq-header-title">
-                        <h4 class="card-title mb-0">All Books</h4>
-                    </div>
-                    <hr>
+             <div class="iq-card" id="result-search">
+                <div class="iq-card-body">
+                    <div class="iq-card-header d-flex justify-content-between align-items-center position-relative mb-0 trendy-detail">
+                        <div class="iq-header-title">
+                           <h4 class="card-title mb-0">All Books</h4>
+                        </div>
+                        <div class="iq-dropdown">
+                            <div class="form-group mb-0">
+                                <select onchange="categories()" id="categories" class="form-control form-search-control bg-white border-0">
+                                    <option selected disabled>Filter by Category</option>
+                                    <option value="0">All</option>
+                                    @foreach ($categories as $category )
+                                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                         </div>
+                     </div>
 
                    <div class="row mt-3">
                     @foreach ($books as $book )
@@ -89,204 +101,42 @@
                 </div>
                 <div class="iq-card-body trendy-contens">
                    <ul id="trendy-slider" class="list-inline p-0 mb-0 row">
-                      <li class="col-md-3">
-                         <div class="d-flex align-items-center">
-                            <div class="col-5 p-0 position-relative image-overlap-shadow">
-                               <a href="javascript:void();"><img class="img-fluid rounded w-100" src="images/trendy-books/01.jpg" alt=""></a>
-                               <div class="view-book">
-                                  <a href="book-page.html" class="btn btn-sm btn-white">View Book</a>
-                               </div>
-                            </div>
-                            <div class="col-7">
-                               <div class="mb-2">
-                                  <h6 class="mb-1">The Word Books Day..</h6>
-                                  <p class="font-size-13 line-height mb-1">Paul Molive</p>
-                                  <div class="d-block">
-                                     <span class="font-size-13 text-warning">
-                                     <i class="fa fa-star"></i>
-                                     <i class="fa fa-star"></i>
-                                     <i class="fa fa-star"></i>
-                                     <i class="fa fa-star"></i>
-                                     <i class="fa fa-star"></i>
-                                     </span>
-                                  </div>
-                               </div>
-                               <div class="price d-flex align-items-center">
-                                  <span class="pr-1 old-price">$99</span>
-                                  <h6><b>$89</b></h6>
-                               </div>
-                               <div class="iq-product-action">
-                                  <a href="javascript:void();"><i class="ri-shopping-cart-2-fill text-primary"></i></a>
-                                  <a href="javascript:void();" class="ml-2"><i class="ri-heart-fill text-danger"></i></a>
-                               </div>
-                            </div>
-                         </div>
-                      </li>
-                      <li class="col-md-3">
-                         <div class="d-flex align-items-center">
-                            <div class="col-5 p-0 position-relative image-overlap-shadow">
-                               <a href="javascript:void();"><img class="img-fluid rounded w-100" src="images/trendy-books/02.jpg" alt=""></a>
-                               <div class="view-book">
-                                  <a href="book-page.html" class="btn btn-sm btn-white">View Book</a>
-                               </div>
-                            </div>
-                            <div class="col-7">
-                               <div class="mb-2">
-                                  <h6 class="mb-1">The catcher in the Rye</h6>
-                                  <p class="font-size-13 line-height mb-1">Anna Sthesia</p>
-                                  <div class="d-block">
-                                     <span class="font-size-13 text-warning">
-                                     <i class="fa fa-star"></i>
-                                     <i class="fa fa-star"></i>
-                                     <i class="fa fa-star"></i>
-                                     <i class="fa fa-star"></i>
-                                     <i class="fa fa-star"></i>
-                                     </span>
-                                  </div>
-                               </div>
-                               <div class="price d-flex align-items-center">
-                                  <span class="pr-1 old-price">$89</span>
-                                  <h6><b>$79</b></h6>
-                               </div>
-                               <div class="iq-product-action">
-                                  <a href="javascript:void();"><i class="ri-shopping-cart-2-fill text-primary"></i></a>
-                                  <a href="javascript:void();" class="ml-2"><i class="ri-heart-fill text-danger"></i></a>
-                               </div>
-                            </div>
-                         </div>
-                      </li>
-                      <li class="col-md-3">
-                         <div class="d-flex align-items-center">
-                            <div class="col-5 p-0 position-relative image-overlap-shadow">
-                               <a href="javascript:void();"><img class="img-fluid rounded w-100" src="images/trendy-books/03.jpg" alt=""></a>
-                               <div class="view-book">
-                                  <a href="book-page.html" class="btn btn-sm btn-white">View Book</a>
-                               </div>
-                            </div>
-                            <div class="col-7">
-                               <div class="mb-2">
-                                  <h6 class="mb-1">Little Black Book</h6>
-                                  <p class="font-size-13 line-height mb-1">Monty Carlo</p>
-                                  <div class="d-block">
-                                     <span class="font-size-13 text-warning">
-                                     <i class="fa fa-star"></i>
-                                     <i class="fa fa-star"></i>
-                                     <i class="fa fa-star"></i>
-                                     <i class="fa fa-star"></i>
-                                     <i class="fa fa-star"></i>
-                                     </span>
-                                  </div>
-                               </div>
-                               <div class="price d-flex align-items-center">
-                                  <span class="pr-1 old-price">$100</span>
-                                  <h6><b>$89</b></h6>
-                               </div>
-                               <div class="iq-product-action">
-                                  <a href="javascript:void();"><i class="ri-shopping-cart-2-fill text-primary"></i></a>
-                                  <a href="javascript:void();" class="ml-2"><i class="ri-heart-fill text-danger"></i></a>
-                               </div>
-                            </div>
-                         </div>
-                      </li>
-                      <li class="col-md-3">
-                         <div class="d-flex align-items-center">
-                            <div class="col-5 p-0 position-relative image-overlap-shadow">
-                               <a href="javascript:void();"><img class="img-fluid rounded w-100" src="images/trendy-books/04.jpg" alt=""></a>
-                               <div class="view-book">
-                                  <a href="book-page.html" class="btn btn-sm btn-white">View Book</a>
-                               </div>
-                            </div>
-                            <div class="col-7">
-                               <div class="mb-2">
-                                  <h6 class="mb-1">Take The Risk Book</h6>
-                                  <p class="font-size-13 line-height mb-1">Smith goal</p>
-                                  <div class="d-block">
-                                     <span class="font-size-13 text-warning">
-                                     <i class="fa fa-star"></i>
-                                     <i class="fa fa-star"></i>
-                                     <i class="fa fa-star"></i>
-                                     <i class="fa fa-star"></i>
-                                     <i class="fa fa-star"></i>
-                                     </span>
-                                  </div>
-                               </div>
-                               <div class="price d-flex align-items-center">
-                                  <span class="pr-1 old-price">$120</span>
-                                  <h6><b>$99</b></h6>
-                               </div>
-                               <div class="iq-product-action">
-                                  <a href="javascript:void();"><i class="ri-shopping-cart-2-fill text-primary"></i></a>
-                                  <a href="javascript:void();" class="ml-2"><i class="ri-heart-fill text-danger"></i></a>
-                               </div>
-                            </div>
-                         </div>
-                      </li>
-                      <li class="col-md-3">
-                         <div class="d-flex align-items-center">
-                            <div class="col-5 p-0 position-relative image-overlap-shadow">
-                               <a href="javascript:void();"><img class="img-fluid rounded w-100" src="images/trendy-books/05.jpg" alt=""></a>
-                               <div class="view-book">
-                                  <a href="book-page.html" class="btn btn-sm btn-white">View Book</a>
-                               </div>
-                            </div>
-                            <div class="col-7">
-                               <div class="mb-2">
-                                  <h6 class="mb-1">The Raze Night Book </h6>
-                                  <p class="font-size-13 line-height mb-1">Paige Turner</p>
-                                  <div class="d-block">
-                                     <span class="font-size-13 text-warning">
-                                     <i class="fa fa-star"></i>
-                                     <i class="fa fa-star"></i>
-                                     <i class="fa fa-star"></i>
-                                     <i class="fa fa-star"></i>
-                                     <i class="fa fa-star"></i>
-                                     </span>
-                                  </div>
-                               </div>
-                               <div class="price d-flex align-items-center">
-                                  <span class="pr-1 old-price">$150</span>
-                                  <h6><b>$129</b></h6>
-                               </div>
-                               <div class="iq-product-action">
-                                  <a href="javascript:void();"><i class="ri-shopping-cart-2-fill text-primary"></i></a>
-                                  <a href="javascript:void();" class="ml-2"><i class="ri-heart-fill text-danger"></i></a>
-                               </div>
-                            </div>
-                         </div>
-                      </li>
-                      <li class="col-md-3">
-                         <div class="d-flex align-items-center">
-                            <div class="col-5 p-0 position-relative image-overlap-shadow">
-                               <a href="javascript:void();"><img class="img-fluid rounded w-100" src="images/trendy-books/06.jpg" alt=""></a>
-                               <div class="view-book">
-                                  <a href="book-page.html" class="btn btn-sm btn-white">View Book</a>
-                               </div>
-                            </div>
-                            <div class="col-7">
-                               <div class="mb-2">
-                                  <h6 class="mb-1">Find the Wave Book..</h6>
-                                  <p class="font-size-13 line-height mb-1">Barb Ackue</p>
-                                  <div class="d-block">
-                                     <span class="font-size-13 text-warning">
-                                     <i class="fa fa-star"></i>
-                                     <i class="fa fa-star"></i>
-                                     <i class="fa fa-star"></i>
-                                     <i class="fa fa-star"></i>
-                                     <i class="fa fa-star"></i>
-                                     </span>
-                                  </div>
-                               </div>
-                               <div class="price d-flex align-items-center">
-                                  <span class="pr-1 old-price">$120</span>
-                                  <h6><b>$100</b></h6>
-                               </div>
-                               <div class="iq-product-action">
-                                  <a href="javascript:void();"><i class="ri-shopping-cart-2-fill text-primary"></i></a>
-                                  <a href="javascript:void();" class="ml-2"><i class="ri-heart-fill text-danger"></i></a>
-                               </div>
-                            </div>
-                         </div>
-                      </li>
+                    @foreach ($trendy as $item )
+                    <li class="col-md-3">
+                        <div class="d-flex align-items-center">
+                           <div class="col-5 p-0 position-relative image-overlap-shadow">
+                              <a href="javascript:void();"><img class="img-fluid rounded w-100" src="{{ $item->image ? ''.Storage::url($item->image) : '' }}" alt="book-img"></a>
+                              <div class="view-book">
+                                 <a href="{{ route('bookdetail', ['id'=>$item->id]) }}" class="btn btn-sm btn-white">View Book</a>
+                              </div>
+                           </div>
+                           <div class="col-7">
+                              <div class="mb-2">
+                                 <h6 class="mb-1">{{ $item->bookName }}</h6>
+                                 <p class="font-size-13 line-height mb-1">Category: {{ $item->cate_name }}</p>
+                                 <div class="d-block">
+                                    <span class="font-size-13 text-warning">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    </span>
+                                 </div>
+                              </div>
+                              <div class="price d-flex align-items-center">
+                                 {{-- <span class="pr-1 old-price">$99</span> --}}
+                                 <h6><b>{{ number_format($item->price) }} đ</b></h6>
+                              </div>
+                              <div class="iq-product-action">
+                                <a onclick="add({{ $item->id }})" href="javascript:"><i class="ri-shopping-cart-2-fill text-primary"></i></a>
+                                <a href="javascript:void();" class="ml-2"><i class="ri-heart-fill text-danger"></i></a>
+                              </div>
+                           </div>
+                        </div>
+                     </li>
+                    @endforeach
+
                    </ul>
                 </div>
              </div>
@@ -303,98 +153,35 @@
                 </div>
                 <div class="iq-card-body favorites-contens">
                    <ul id="favorites-slider" class="list-inline p-0 mb-0 row">
-                      <li class="col-md-3">
-                         <div class="d-flex justify-content-between align-items-center">
-                            <div class="col-5 p-0 position-relative">
-                               <a href="javascript:void();">
-                                  <img src="images/favorite/05.jpg" class="img-fluid rounded w-100" alt="">
-                               </a>
-                            </div>
-                            <div class="col-7">
-                               <h5 class="mb-2">Every Book is a new Wonderful Travel..</h5>
-                               <p class="mb-2">Author : Pedro Araez</p>
-                               <div class="d-flex justify-content-between align-items-center text-dark font-size-13">
-                                  <span>Reading</span>
-                                  <span class="mr-4">78%</span>
-                               </div>
-                               <div class="iq-progress-bar-linear d-inline-block w-100">
-                                  <div class="iq-progress-bar iq-bg-primary">
-                                     <span class="bg-primary" data-percent="78"></span>
-                                  </div>
-                               </div>
-                               <a href="#" class="text-dark">Read Now<i class="ri-arrow-right-s-line"></i></a>
-                            </div>
-                         </div>
-                      </li>
-                      <li class="col-md-3">
-                         <div class="d-flex justify-content-between align-items-center">
-                            <div class="col-5 p-0 position-relative">
-                               <a href="javascript:void();">
-                                  <img src="images/favorite/06.jpg" class="img-fluid rounded w-100" alt="">
-                               </a>
-                            </div>
-                            <div class="col-7">
-                               <h5 class="mb-2">Casey Christie night book into find...</h5>
-                               <p class="mb-2">Author : Michael klock</p>
-                               <div class="d-flex justify-content-between align-items-center text-dark font-size-13">
-                                  <span>Reading</span>
-                                  <span class="mr-4">78%</span>
-                               </div>
-                               <div class="iq-progress-bar-linear d-inline-block w-100">
-                                  <div class="iq-progress-bar iq-bg-danger">
-                                     <span class="bg-danger" data-percent="78"></span>
-                                  </div>
-                               </div>
-                               <a href="#" class="text-dark">Read Now<i class="ri-arrow-right-s-line"></i></a>
-                            </div>
-                         </div>
-                      </li>
-                      <li class="col-md-3">
-                         <div class="d-flex justify-content-between align-items-center">
-                            <div class="col-5 p-0 position-relative">
-                               <a href="javascript:void();">
-                                  <img src="images/favorite/07.jpg" class="img-fluid rounded w-100" alt="">
-                               </a>
-                            </div>
-                            <div class="col-7">
-                               <h5 class="mb-2">The Secret to English Busy People..</h5>
-                               <p class="mb-2">Author : Daniel Ace</p>
-                               <div class="d-flex justify-content-between align-items-center text-dark font-size-13">
-                                  <span>Reading</span>
-                                  <span class="mr-4">78%</span>
-                               </div>
-                               <div class="iq-progress-bar-linear d-inline-block w-100">
-                                  <div class="iq-progress-bar iq-bg-info">
-                                     <span class="bg-info" data-percent="78"></span>
-                                  </div>
-                               </div>
-                               <a href="#" class="text-dark">Read Now<i class="ri-arrow-right-s-line"></i></a>
-                            </div>
-                         </div>
-                      </li>
-                      <li class="col-md-3">
-                         <div class="d-flex justify-content-between align-items-center">
-                            <div class="col-5 p-0 position-relative">
-                               <a href="javascript:void();">
-                                  <img src="images/favorite/08.jpg" class="img-fluid rounded w-100" alt="">
-                               </a>
-                            </div>
-                            <div class="col-7">
-                               <h5 class="mb-2">The adventures of Robins books...</h5>
-                               <p class="mb-2">Author : Luka Afton</p>
-                               <div class="d-flex justify-content-between align-items-center text-dark font-size-13">
-                                  <span>Reading</span>
-                                  <span class="mr-4">78%</span>
-                               </div>
-                               <div class="iq-progress-bar-linear d-inline-block w-100">
-                                  <div class="iq-progress-bar iq-bg-success">
-                                     <span class="bg-success" data-percent="78"></span>
-                                  </div>
-                               </div>
-                               <a href="#" class="text-dark">Read Now<i class="ri-arrow-right-s-line"></i></a>
-                            </div>
-                         </div>
-                      </li>
+                    @foreach ($favorite as $item )
+                    <li class="col-md-3">
+                        <div class="d-flex justify-content-between align-items-center">
+                           <div class="col-5 p-0 position-relative">
+                              <a href="javascript:void();">
+                                 <img src="{{ $item->image ? ''.Storage::url($item->image) : '' }}" class="img-fluid rounded w-100" alt="book-img">
+                              </a>
+                           </div>
+                           <div class="col-7">
+                              <h5 class="mb-2">{{ $item->bookName }}</h5>
+                              <p class="mb-2">Author : {{ $item->author_name }}</p>
+                              <div class="d-flex justify-content-between align-items-center text-dark font-size-13">
+                                 <span>Reading</span>
+                                 @php
+                                     $dataPercent = rand(50, 100);
+                                 @endphp
+                                 <span class="mr-4">{{ $dataPercent }}%</span>
+                              </div>
+                              <div class="iq-progress-bar-linear d-inline-block w-100">
+                                 <div class="iq-progress-bar iq-bg-primary">
+                                    <span class="bg-primary" data-percent="{{ $dataPercent }}"></span>
+                                 </div>
+                              </div>
+                              <a href="{{ route('bookdetail', ['id'=>$item->id]) }}" class="text-dark">Read Now<i class="ri-arrow-right-s-line"></i></a>
+                           </div>
+                        </div>
+                     </li>
+                    @endforeach
+
                    </ul>
                 </div>
              </div>

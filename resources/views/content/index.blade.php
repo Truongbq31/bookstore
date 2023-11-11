@@ -141,32 +141,12 @@
                             <div class="iq-header-title">
                                 <h4 class="card-title">Featured Books</h4>
                             </div>
-                            <div class="iq-card-header-toolbar d-flex align-items-center">
-                                <div class="dropdown">
-                                    <span class="dropdown-toggle p-0 text-body" id="dropdownMenuButton2"
-                                        data-toggle="dropdown">
-                                        This Week<i class="ri-arrow-down-s-fill"></i>
-                                    </span>
-                                    <div class="dropdown-menu dropdown-menu-right shadow-none"
-                                        aria-labelledby="dropdownMenuButton2">
-                                        <a class="dropdown-item" href="#"><i class="ri-eye-fill mr-2"></i>View</a>
-                                        <a class="dropdown-item" href="#"><i
-                                                class="ri-delete-bin-6-fill mr-2"></i>Delete</a>
-                                        <a class="dropdown-item" href="#"><i
-                                                class="ri-pencil-fill mr-2"></i>Edit</a>
-                                        <a class="dropdown-item" href="#"><i
-                                                class="ri-printer-fill mr-2"></i>Print</a>
-                                        <a class="dropdown-item" href="#"><i
-                                                class="ri-file-download-fill mr-2"></i>Download</a>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                         <div class="iq-card-body">
                             <div class="row align-items-center">
                                 <div class="col-sm-5 pr-0">
                                     <a href="javascript:void();"><img class="img-fluid rounded w-100"
-                                            src="images/page-img/featured-book.png" alt=""></a>
+                                            src="{{ ''.Storage::url('page-img/featured-book.png') }}" alt=""></a>
                                 </div>
                                 <div class="col-sm-7 mt-3 mt-sm-0">
                                     <h4 class="mb-2">Casey Christie night book into find...</h4>
@@ -194,283 +174,75 @@
                             <div class="iq-header-title">
                                 <h4 class="card-title">Featured Writer</h4>
                             </div>
-                            <div class="iq-card-header-toolbar d-flex align-items-center">
-                                <div class="dropdown">
-                                    <span class="dropdown-toggle p-0 text-body" id="dropdownMenuButton3"
-                                        data-toggle="dropdown">
-                                        This Week<i class="ri-arrow-down-s-fill"></i>
-                                    </span>
-                                    <div class="dropdown-menu dropdown-menu-right shadow-none"
-                                        aria-labelledby="dropdownMenuButton3">
-                                        <a class="dropdown-item" href="#"><i class="ri-eye-fill mr-2"></i>View</a>
-                                        <a class="dropdown-item" href="#"><i
-                                                class="ri-delete-bin-6-fill mr-2"></i>Delete</a>
-                                        <a class="dropdown-item" href="#"><i
-                                                class="ri-pencil-fill mr-2"></i>Edit</a>
-                                        <a class="dropdown-item" href="#"><i
-                                                class="ri-printer-fill mr-2"></i>Print</a>
-                                        <a class="dropdown-item" href="#"><i
-                                                class="ri-file-download-fill mr-2"></i>Download</a>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                         <div class="iq-card-body">
                             <ul class="list-inline row mb-0 align-items-center iq-scrollable-block">
-                                <li class="col-sm-6 d-flex mb-3 align-items-center">
-                                    <div class="icon iq-icon-box mr-3">
-                                        <a href="javascript:void();"><img class="img-fluid avatar-60 rounded-circle"
-                                                src="images/user/01.jpg" alt=""></a>
-                                    </div>
-                                    <div class="mt-1">
-                                        <h6>Brandon Guidelines</h6>
-                                        <p class="mb-0 text-primary">Publish Books: <span class="text-body">2831</span>
-                                        </p>
-                                    </div>
-                                </li>
-                                <li class="col-sm-6 d-flex mb-3 align-items-center">
-                                    <div class="icon iq-icon-box mr-3">
-                                        <a href="javascript:void();"><img class="img-fluid avatar-60 rounded-circle"
-                                                src="images/user/02.jpg" alt=""></a>
-                                    </div>
-                                    <div class="mt-1">
-                                        <h6>Hugh Millie-Yate</h6>
-                                        <p class="mb-0 text-primary">Publish Books: <span class="text-body">432</span></p>
-                                    </div>
-                                </li>
-                                <li class="col-sm-6 d-flex mb-3 align-items-center">
-                                    <div class="icon iq-icon-box mr-3">
-                                        <a href="javascript:void();"><img class="img-fluid avatar-60 rounded-circle"
-                                                src="images/user/03.jpg" alt=""></a>
-                                    </div>
-                                    <div class="mt-1">
-                                        <h6>Nathaneal Down</h6>
-                                        <p class="mb-0 text-primary">Publish Books: <span class="text-body">5471</span>
-                                        </p>
-                                    </div>
-                                </li>
-                                <li class="col-sm-6 d-flex mb-3 align-items-center">
-                                    <div class="icon iq-icon-box mr-3">
-                                        <a href="javascript:void();"><img class="img-fluid avatar-60 rounded-circle"
-                                                src="images/user/04.jpg" alt=""></a>
-                                    </div>
-                                    <div class="mt-1">
-                                        <h6>Thomas R. Toe</h6>
-                                        <p class="mb-0 text-primary">Publish Books: <span class="text-body">8764</span>
-                                        </p>
-                                    </div>
-                                </li>
-                                <li class="col-sm-6 d-flex mb-3 align-items-center">
-                                    <div class="icon iq-icon-box mr-3">
-                                        <a href="javascript:void();"><img class="img-fluid avatar-60 rounded-circle"
-                                                src="images/user/05.jpg" alt=""></a>
-                                    </div>
-                                    <div class="mt-1">
-                                        <h6>Druid Wensleydale</h6>
-                                        <p class="mb-0 text-primary">Publish Books: <span class="text-body">8987</span>
-                                        </p>
-                                    </div>
-                                </li>
-                                <li class="col-sm-6 d-flex mb-3 align-items-center">
-                                    <div class="icon iq-icon-box mr-3">
-                                        <a href="javascript:void();"><img class="img-fluid avatar-60 rounded-circle"
-                                                src="images/user/06.jpg" alt=""></a>
-                                    </div>
-                                    <div class="mt-1">
-                                        <h6>Natalya Undgrowth</h6>
-                                        <p class="mb-0 text-primary">Publish Books: <span class="text-body">2831</span>
-                                        </p>
-                                    </div>
-                                </li>
-                                <li class="col-sm-6 d-flex mb-3 align-items-center">
-                                    <div class="icon iq-icon-box mr-3">
-                                        <a href="javascript:void();"><img class="img-fluid avatar-60 rounded-circle"
-                                                src="images/user/07.jpg" alt=""></a>
-                                    </div>
-                                    <div class="mt-1">
-                                        <h6>Desmond Eagle</h6>
-                                        <p class="mb-0 text-primary">Publish Books: <span class="text-body">4324</span>
-                                        </p>
-                                    </div>
-                                </li>
-                                <li class="col-sm-6 d-flex mb-3 align-items-center">
-                                    <div class="icon iq-icon-box mr-3">
-                                        <a href="javascript:void();"><img class="img-fluid avatar-60 rounded-circle"
-                                                src="images/user/08.jpg" alt=""></a>
-                                    </div>
-                                    <div class="mt-1">
-                                        <h6>Lurch Schpellchek</h6>
-                                        <p class="mb-0 text-primary">Publish Books: <span class="text-body">012</span></p>
-                                    </div>
-                                </li>
-                                <li class="col-sm-6 d-flex mb-3 align-items-center">
-                                    <div class="icon iq-icon-box mr-3">
-                                        <a href="javascript:void();"><img class="img-fluid avatar-60 rounded-circle"
-                                                src="images/user/09.jpg" alt=""></a>
-                                    </div>
-                                    <div class="mt-1">
-                                        <h6>Natalya Undgrowth</h6>
-                                        <p class="mb-0 text-primary">Publish Books: <span class="text-body">2831</span>
-                                        </p>
-                                    </div>
-                                </li>
-                                <li class="col-sm-6 d-flex mb-3 align-items-center">
-                                    <div class="icon iq-icon-box mr-3">
-                                        <a href="javascript:void();"><img class="img-fluid avatar-60 rounded-circle"
-                                                src="images/user/10.jpg" alt=""></a>
-                                    </div>
-                                    <div class="mt-1">
-                                        <h6>Natalya Undgrowth</h6>
-                                        <p class="mb-0 text-primary">Publish Books: <span class="text-body">2831</span>
-                                        </p>
-                                    </div>
-                                </li>
-                                <li class="col-sm-6 d-flex mb-3 align-items-center">
-                                    <div class="icon iq-icon-box mr-3">
-                                        <a href="javascript:void();"><img class="img-fluid avatar-60 rounded-circle"
-                                                src="images/user/11.jpg" alt=""></a>
-                                    </div>
-                                    <div class="mt-1">
-                                        <h6>Natalya Undgrowth</h6>
-                                        <p class="mb-0 text-primary">Publish Books: <span class="text-body">2831</span>
-                                        </p>
-                                    </div>
-                                </li>
-                                <li class="col-sm-6 d-flex mb-3 align-items-center">
-                                    <div class="icon iq-icon-box mr-3">
-                                        <a href="javascript:void();"><img class="img-fluid avatar-60 rounded-circle"
-                                                src="images/user/01.jpg" alt=""></a>
-                                    </div>
-                                    <div class="mt-1">
-                                        <h6>Natalya Undgrowth</h6>
-                                        <p class="mb-0 text-primary">Publish Books: <span class="text-body">2831</span>
-                                        </p>
-                                    </div>
-                                </li>
+                                @foreach ($authors as $author )
+                                    <li class="col-sm-6 d-flex mb-3 align-items-center">
+                                        <div class="icon iq-icon-box mr-3">
+                                            <a href="javascript:void();"><img class="img-fluid avatar-60 rounded-circle"
+                                                    src="{{ $author->image ? ''.Storage::url($author->image) : '' }}" alt="author-img"></a>
+                                        </div>
+                                        <div class="mt-1">
+                                            <h6>{{ $author->name }}</h6>
+                                            @php
+                                                $publicBook = rand(1, 50);
+                                            @endphp
+                                            <p class="mb-0 text-primary">Publish Books: <span class="text-body">{{ $publicBook }}</span>
+                                            </p>
+                                        </div>
+                                    </li>
+                                @endforeach
+
                             </ul>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-12">
                     <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
-                        <div class="iq-card-header d-flex justify-content-between align-items-center position-relative">
-                            <div class="iq-header-title">
-                                <h4 class="card-title mb-0">Favorite Reads</h4>
-                            </div>
-                            <div class="iq-card-header-toolbar d-flex align-items-center">
-                                <a href="category.html" class="btn btn-sm btn-primary view-more">View More</a>
-                            </div>
-                        </div>
-                        <div class="iq-card-body favorites-contens">
-                            <ul id="favorites-slider" class="list-inline p-0 mb-0 row">
-                                <li class="col-md-4">
-                                    <div class="d-flex align-items-center">
-                                        <div class="col-5 p-0 position-relative">
-                                            <a href="javascript:void();">
-                                                <img src="images/favorite/01.jpg" class="img-fluid rounded w-100"
-                                                    alt="">
-                                            </a>
+                       <div class="iq-card-header d-flex justify-content-between align-items-center position-relative">
+                          <div class="iq-header-title">
+                             <h4 class="card-title mb-0">Favorite Reads</h4>
+                          </div>
+                          <div class="iq-card-header-toolbar d-flex align-items-center">
+                             <a href="category.html" class="btn btn-sm btn-primary view-more">View More</a>
+                          </div>
+                       </div>
+                       <div class="iq-card-body favorites-contens">
+                          <ul id="favorites-slider" class="list-inline p-0 mb-0 row">
+                           @foreach ($favorite as $item )
+                           <li class="col-md-3">
+                               <div class="d-flex justify-content-between align-items-center">
+                                  <div class="col-5 p-0 position-relative">
+                                     <a href="javascript:void();">
+                                        <img src="{{ $item->image ? ''.Storage::url($item->image) : '' }}" class="img-fluid rounded w-100" alt="book-img">
+                                     </a>
+                                  </div>
+                                  <div class="col-7">
+                                     <h5 class="mb-2">{{ $item->bookName }}</h5>
+                                     <p class="mb-2">Author : {{ $item->author_name }}</p>
+                                     <div class="d-flex justify-content-between align-items-center text-dark font-size-13">
+                                        <span>Reading</span>
+                                        @php
+                                            $dataPercent = rand(50, 100);
+                                        @endphp
+                                        <span class="mr-4">{{ $dataPercent }}%</span>
+                                     </div>
+                                     <div class="iq-progress-bar-linear d-inline-block w-100">
+                                        <div class="iq-progress-bar iq-bg-primary">
+                                           <span class="bg-primary" data-percent="{{ $dataPercent }}"></span>
                                         </div>
-                                        <div class="col-7">
-                                            <h5 class="mb-2">Every Book is a new Wonderful Travel..</h5>
-                                            <p class="mb-2">Author : Pedro Araez</p>
-                                            <div
-                                                class="d-flex justify-content-between align-items-center text-dark font-size-13">
-                                                <span>Reading</span>
-                                                <span class="mr-4">78%</span>
-                                            </div>
-                                            <div class="iq-progress-bar-linear d-inline-block w-100">
-                                                <div class="iq-progress-bar iq-bg-primary">
-                                                    <span class="bg-primary" data-percent="78"></span>
-                                                </div>
-                                            </div>
-                                            <a href="#" class="text-dark">Read Now<i
-                                                    class="ri-arrow-right-s-line"></i></a>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="col-md-4">
-                                    <div class="d-flex align-items-center">
-                                        <div class="col-5 p-0 position-relative">
-                                            <a href="javascript:void();">
-                                                <img src="images/favorite/02.jpg" class="img-fluid rounded w-100"
-                                                    alt="">
-                                            </a>
-                                        </div>
-                                        <div class="col-7">
-                                            <h5 class="mb-2">Casey Christie night book into find...</h5>
-                                            <p class="mb-2">Author : Michael klock</p>
-                                            <div
-                                                class="d-flex justify-content-between align-items-center text-dark font-size-13">
-                                                <span>Reading</span>
-                                                <span class="mr-4">78%</span>
-                                            </div>
-                                            <div class="iq-progress-bar-linear d-inline-block w-100">
-                                                <div class="iq-progress-bar iq-bg-danger">
-                                                    <span class="bg-danger" data-percent="78"></span>
-                                                </div>
-                                            </div>
-                                            <a href="#" class="text-dark">Read Now<i
-                                                    class="ri-arrow-right-s-line"></i></a>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="col-md-4">
-                                    <div class="d-flex align-items-center">
-                                        <div class="col-5 p-0 position-relative">
-                                            <a href="javascript:void();">
-                                                <img src="images/favorite/03.jpg" class="img-fluid rounded w-100"
-                                                    alt="">
-                                            </a>
-                                        </div>
-                                        <div class="col-7">
-                                            <h5 class="mb-2">The Secret to English Busy People..</h5>
-                                            <p class="mb-2">Author : Daniel Ace</p>
-                                            <div
-                                                class="d-flex justify-content-between align-items-center text-dark font-size-13">
-                                                <span>Reading</span>
-                                                <span class="mr-4">78%</span>
-                                            </div>
-                                            <div class="iq-progress-bar-linear d-inline-block w-100">
-                                                <div class="iq-progress-bar iq-bg-info">
-                                                    <span class="bg-info" data-percent="78"></span>
-                                                </div>
-                                            </div>
-                                            <a href="#" class="text-dark">Read Now<i
-                                                    class="ri-arrow-right-s-line"></i></a>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="col-md-4">
-                                    <div class="d-flex align-items-center">
-                                        <div class="col-5 p-0 position-relative">
-                                            <a href="javascript:void();">
-                                                <img src="images/favorite/04.jpg" class="img-fluid rounded w-100"
-                                                    alt="">
-                                            </a>
-                                        </div>
-                                        <div class="col-7">
-                                            <h5 class="mb-2">The adventures of Robins books...</h5>
-                                            <p class="mb-2">Author : Luka Afton</p>
-                                            <div
-                                                class="d-flex justify-content-between align-items-center text-dark font-size-13">
-                                                <span>Reading</span>
-                                                <span class="mr-4">78%</span>
-                                            </div>
-                                            <div class="iq-progress-bar-linear d-inline-block w-100">
-                                                <div class="iq-progress-bar iq-bg-success">
-                                                    <span class="bg-success" data-percent="78"></span>
-                                                </div>
-                                            </div>
-                                            <a href="#" class="text-dark">Read Now<i
-                                                    class="ri-arrow-right-s-line"></i></a>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
+                                     </div>
+                                     <a href="{{ route('bookdetail', ['id'=>$item->id]) }}" class="text-dark">Read Now<i class="ri-arrow-right-s-line"></i></a>
+                                  </div>
+                               </div>
+                            </li>
+                           @endforeach
+
+                          </ul>
+                       </div>
                     </div>
-                </div>
+                 </div>
             </div>
         </div>
     </div>

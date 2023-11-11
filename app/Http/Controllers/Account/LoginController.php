@@ -12,11 +12,14 @@ class LoginController extends Controller
     public function login(Request $request){
         if($request->isMethod("POST")){
             if(Auth::attempt(["email"=>$request->email,"password"=>$request->password])){
-                if(Auth::user()->role == 1){
-                    Session::put('admin', 'admin');
+                if(Auth::user()->status == 1){
+                    if(Auth::user()->role == 1){
+                        Session::put('admin', 'admin');
+                    }
+                    return redirect()->route('index')->with('success','Đăng nhập thành công!');
+                }else{
+                    echo "<script>alert('Tài khoản hiện bị khóa, liên hệ Admin để được hỗ trợ')</script>";
                 }
-                Session::flash('success', 'Đăng nhập thành công!');
-                return redirect()->route('index');
             }else{
                 echo "<script>alert('Tài khoản hoặc mật khẩu không chính xác!')</script>";
             }

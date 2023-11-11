@@ -42,8 +42,8 @@
             <div class="row">
                <div class="col-lg-6">
                   <ul class="list-inline mb-0">
-                     <li class="list-inline-item"><a href="privacy-policy.html">Privacy Policy</a></li>
-                     <li class="list-inline-item"><a href="terms-of-service.html">Terms of Use</a></li>
+                     <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+                     <li class="list-inline-item"><a href="#">Terms of Use</a></li>
                   </ul>
                </div>
                <div class="col-lg-6 text-right">
@@ -127,9 +127,9 @@
 
       {{-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script> --}}
 
-      @yield('script')
+    @yield('script')
 
-      <script>
+    <script>
         function add(id){
             $.ajax({
                 url: "{{ route('Cart.add') }}",
@@ -145,6 +145,7 @@
                 }
             })
         }
+
         function removeCart(id){
             $.ajax({
                 url: "{{ route('Cart.remove') }}",
@@ -169,24 +170,40 @@
             }
         }
 
-        // Search
-        $(document).ready(function() {
-        $("#input-search").change(function(e){
+        //Search
+        function categories(){
+            let cate_id = $("#categories").val()
+                // console.log(cate_id);
+            $.ajax({
+                url: "{{ route('Client.search') }}",
+                method: "POST",
+                data: {
+                    _token: "{{ csrf_token() }}",
+                    cate_id: cate_id
+                },
+                success: function(response){
+                    console.log(response);
+                    $("#result-search").html(response)
+                    $("#input-search").val('');
+                }
+            });
+        }
+        function searchBook(){
             let inputValue = document.querySelector("#input-search").value;
             $.ajax({
-            url: "{{ route('Client.search') }}",
-            method: "POST",
-            data: {
-                _token: "{{ csrf_token() }}",
-                search: inputValue
-            },
-            success: function(response){
-                console.log(response);
-                $("#result-search").html(response);
-            }
-        })
-        })
-    });
+                url: "{{ route('Client.search') }}",
+                method: "POST",
+                data: {
+                    _token: "{{ csrf_token() }}",
+                    search: inputValue
+                },
+                success: function(response){
+                    console.log(response);
+                    $("#result-search").html(response);
+                    $("#input-search").val('');
+                }
+            })
+        }
     </script>
    </body>
 

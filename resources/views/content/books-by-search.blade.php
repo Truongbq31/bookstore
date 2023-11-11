@@ -1,9 +1,23 @@
 @if (count($books) > 0)
-<div class="iq-header-title">
-    <h4 class="card-title mb-0">Search results for keyword "<i>{{ $keyWords }}</i>"</h4>
-</div>
-<hr>
-<div class="row mt-3">
+<div class="iq-card-body">
+    <div class="iq-card-header d-flex justify-content-between align-items-center position-relative mb-0 trendy-detail">
+        <div class="iq-header-title">
+           <h4 class="card-title mb-0">All Books</h4>
+        </div>
+        <div class="iq-dropdown">
+            <div class="form-group mb-0">
+                <select onchange="categories()" id="categories" class="form-control form-search-control bg-white border-0">
+                    <option selected value="0" disabled>Filter by Category</option>
+                    <option value="0">All</option>
+                    @foreach ($categories as $category )
+                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                    @endforeach
+                </select>
+            </div>
+         </div>
+     </div>
+
+   <div class="row mt-3">
     @foreach ($books as $book )
       <div class="col-sm-6 col-md-4 col-lg-3">
          <div class="iq-card iq-card-block iq-card-stretch iq-card-height search-bookcontent">
@@ -44,6 +58,7 @@
          </div>
       </div>
       @endforeach
+   </div>
 </div>
 @else
 <h6>Found no match for your search!</h6>

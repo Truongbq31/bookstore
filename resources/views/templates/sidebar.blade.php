@@ -44,16 +44,8 @@
              <li>
                 <a href="#pages" class="iq-waves-effect collapsed" data-toggle="collapse" aria-expanded="false"><i class="las la-file-alt iq-arrow-left"></i><span>Pages</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
                 <ul id="pages" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
-                   <li>
-                      <a href="#authentication" class="iq-waves-effect collapsed" data-toggle="collapse" aria-expanded="false"><i class="ri-pages-line"></i><span>Authentication</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
-                      <ul id="authentication" class="iq-submenu collapse" data-parent="#pages">
-                         <li><a href="{{ route('login') }}"><i class="las la-sign-in-alt"></i>Login</a></li>
-                         <li><a href="{{ route('register') }}"><i class="ri-login-circle-line"></i>Register</a></li>
-                         {{-- <li><a href="pages-recoverpw.html"><i class="ri-record-mail-line"></i>Recover Password</a></li>
-                         <li><a href="pages-confirm-mail.html"><i class="ri-file-code-line"></i>Confirm Mail</a></li>
-                         <li><a href="pages-lock-screen.html"><i class="ri-lock-line"></i>Lock Screen</a></li> --}}
-                      </ul>
-                   </li>
+                    <li><a href="{{ route('login') }}"><i class="las la-sign-in-alt"></i>Login</a></li>
+                    <li><a href="{{ route('register') }}"><i class="ri-login-circle-line"></i>Register</a></li>
                 </ul>
              </li>
           </ul>
@@ -62,7 +54,7 @@
           <div class="iq-card">
              <div class="iq-card-body">
                 <div class="sidebarbottom-content">
-                   <div class="image"><img src="images/page-img/side-bkg.png" alt=""></div>
+                   <div class="image"><img src="{{ ''.Storage::url('page-img/side-bkg.png')}}" alt=""></div>
                    <button type="submit" class="btn w-100 btn-primary mt-4 view-more">Become Membership</button>
                 </div>
              </div>

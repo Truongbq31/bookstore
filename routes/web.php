@@ -59,6 +59,7 @@ Route::prefix('bookstore')->group(function(){
 
     //Search
     Route::post('/search', [ClientController::class,'getBooksBySearch'])->name('Client.search');
+    Route::post('/filter', [ClientController::class,'getBooksByFilter'])->name('Client.filter');
 });
 
 //Admin

@@ -134,7 +134,7 @@
                         <form class="mt-3" style="border: 1px solid greenyellow; border-radius: 10px">
                             <div class="form-inner">
                                 <input type="text" hidden id="book_id" value="{{ $book->id }}">
-                                <textarea id="textComment" style="width: 100%; position: relative; border: none;  " placeholder="Ask your question..."></textarea>
+                                <textarea required id="textComment" style="width: 100%; position: relative; border: none;  " placeholder="Ask your question..."></textarea>
                                 <button onclick="btnComment()" type="button" style="position: absolute; top: 60px; right: 30px; border: none; border-radius: 50px">
                                     <svg  xmlns="http://www.w3.org/2000/svg" width="14" height="14"
                                         viewBox="0 0 14 14">
@@ -145,6 +145,7 @@
                                 </button>
                             </div>
                         </form>
+                        <p id="error-comment" style="color: red"></p>
                     </div>
 
                     <div {{ Auth::user() ? 'hidden' : '' }} class="col-md-6">
@@ -437,7 +438,6 @@
     function btnComment(){
         let textComment = document.querySelector("#textComment").value
         let book_id = document.querySelector("#book_id").value
-        let comment = document.querySelector("#comment-content")
         $.ajax({
             url: "{{ route('pushComment') }}",
             method: "POST",
@@ -446,10 +446,14 @@
                 book_id: book_id,
                 textComment: textComment
             },
+            error: function(){
+                $("#error-comment").html('Please enter a comment!');
+            },
             success: function(response){
                 // console.log(response);
-                $("#textComment").val('')
-                $("#id-comment").html(response)
+                $("#textComment").val('');
+                $("#error-comment").html('');
+                $("#id-comment").html(response);
                 // window.location.reload()
             }
         });
